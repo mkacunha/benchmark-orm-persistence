@@ -1,0 +1,240 @@
+AE|Emirados Árabes Unidos 
+AF|Afeganistão
+AG|Antígua e Barbuda
+AI|Anguilla
+AL|Albânia
+AM|Armênia
+AN|Antilhas Holandesas
+AO|Angola
+AQ|Antártida
+AR|Argentina
+AS|Samoa Ocidental
+AT|Áustria
+AU|Austrália
+AW|Aruba
+AZ|Azerbaijão
+BA|Bósnia-Herzegóvina
+BB|Barbados
+BD|Bangladesh
+BE|Bélgica
+BF|Burkina Fasso
+BG|Bulgária
+BH|Bahrein
+BI|Burundi
+BJ|Benin
+BM|Bermudas
+BN|Brunei
+BO|Bolívia
+BR|Brasil
+BS|Bahamas
+BT|Butão
+BV|Ilha Bouvet
+BW|Botsuana
+BY|Belarus
+BZ|Belize
+CA|Canadá
+CC|Ilhas Cocos
+CF|República Centro-Africana
+CG|Congo
+CH|Suíça
+CI|Costa do Marfim
+CK|Ilhas Cook
+CL|Chile
+CM|Camarões
+CN|China
+CO|Colômbia
+CR|Costa Rica
+CS|República Tcheca
+CU|Cuba
+CV|Cabo Verde
+CX|Ilha Natal
+CY|Chipre
+CZ|República Tcheca
+DE|Alemanha
+DJ|Djibuti
+DK|Dinamarca
+DM|Dominica
+DO|República Dominicana
+DZ|Algéria
+EC|Equador
+EE|Estônia
+EG|Egito
+EH|Saara Ocidental
+ER|Eritréia
+ES|Espanha
+ET|Etiópia
+FI|Finlândia
+FJ|Fiji
+FK|Ilhas Falkland (Malvinas)
+FM|Micronésia
+FO|Ilhas Faeroes
+FR|França
+FX|França Metropolitana
+GA|Gabão
+GB|Grã-Bretanha (Reino Unido, UK)
+GD|Granada
+GE|Geórgia
+GF|Guiana Francesa
+GH|Gana
+GI|Gibraltar
+GL|Groelândia
+GM|Gâmbia
+GN|Guiné
+GP|Guadalupe
+GQ|Guiné Equatorial
+GR|Grécia
+GS|Ilhas Geórgia do Sul e Sandwich do Sul
+GT|Guatemala
+GU|Guam 
+GW|Guiné-Bissau
+GY|Guiana
+HK|Hong Kong
+HM|Ilhas Heard e McDonald
+HN|Honduras
+HR|Croácia (Hrvatska)
+HT|Haiti
+HU|Hungria
+ID|Indonésia
+IE|Irlanda
+IL|Israel
+IN|Índia
+IO|Território Britânico do Oceano Índico
+IQ|Iraque
+IR|Irã
+IS|Islândia
+IT|Itália
+JM|Jamaica
+JO|Jordânia
+JP|Japão
+KE|Kênia
+KG|Quirguistão
+KH|Camboja
+KI|Kiribati
+KM|Ilhas Comores
+KN|São Cristóvão e Névis
+KP|Coréia do Norte
+KR|Coréia do Sul
+KW|Kuait
+KY|Ilhas Cayman
+KZ|Cazaquistão
+LA|Laos
+LB|Líbano
+LC|Santa Lúcia
+LI|Liechtenstein
+LK|Sri Lanka
+LR|Libéria
+LS|Lesoto
+LT|Lituânia
+LU|Luxemburgo
+LV|Letônia
+LY|Líbia
+MA|Marrocos
+MC|Mônaco
+MD|Moldova
+MG|Madagascar
+MH|Ilhas Marshall
+MK|Macedônia
+ML|Mali
+MM|Myanma
+MN|Mongólia
+MO|Macau
+MP|Ilhas Marianas do Norte
+MQ|Martinica
+MR|Mauritânia
+MS|Montserrat
+MT|Malta
+MU|Maurício
+MV|Maldivas
+MW|Malaui
+MY|Malásia
+MZ|Moçambique
+NA|Namíbia
+NC|Nova Caledônia
+NE|Níger
+NF|Ilhas Norfolk
+NG|Nigéria
+NI|Nicarágua
+NL|Holanda
+NO|Noruega
+NP|Nepal
+NR|Nauru
+NT|Zona Neutra
+NU|Niue
+NZ|Nova Zelândia
+OM|Omã
+PA|Panamá
+PE|Peru
+PF|Polinésia Francesa
+PG|Papua-Nova Guiné
+PH|Filipinas
+PK|Paquistão
+PL|Polônia
+PM|St. Pierre and Miquelon
+PN|Ilha Pitcairn
+PR|Porto Rico
+PW|Palau
+PY|Paraguai
+QA|Qatar
+RE|Ilha Reunião
+RO|Romênia
+RU|Federação Russa
+RW|Ruanda
+SA|Arábia Saudita
+SB|Ilhas Solomão
+SC|Ilhas Seychelles
+SD|Sudão
+SE|Suécia
+SG|Cingapura
+SH|Santa Helena
+SI|Eslovênia
+SJ|Jan Mayen
+SK|Eslováquia
+SL|Serra Leoa
+SM|San Marino
+SN|Senegal
+SO|Somália
+SR|Suriname
+ST|São Tomé e Príncipe
+SU|União Soviética (antiga)
+SV|El Salvador
+SY|Síria
+SZ|Suazilândia
+TC|Ilhas Turks e Caicos
+TD|Chade
+TF|Territórios do Sul da França
+TG|Togo
+TH|Tailândia
+TJ|Tadjiquistão
+TK|Ilhas Tokelau
+TM|Turcomenistão
+TN|Tunísia
+TO|Tonga
+TP|Timor
+TR|Turquia
+TT|Trinidad and Tobago
+TV|Tuvalu
+TW|Taiwan
+TZ|Tanzânia
+UA|Ucrânia
+UG|Uganda
+UK|Reino Unido
+UM|Ilhas Menores dos Estados Unidos
+US|Estados Unidos
+UY|Uruguai
+UZ|Uzbequistão
+VA|Vaticano
+VC|Saint Vincente e Granadinas
+VE|Venezuela
+VG|Ilhas Virgens (Inglaterra)
+VI|Ilhas Virgens (Estados Unidos)
+VN|Vietnã
+VU|Vanuatu
+WF|Ilhas Wallis e Futuna
+WS|Samoa Ocidental
+YE|Iêmen
+YT|Mayotte
+YU|Iugoslávia
+ZA|África do Sul
+ZM|Zâmbia
+ZR|Zaire
+ZW|Zimbábue

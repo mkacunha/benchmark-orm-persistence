@@ -1,0 +1,27 @@
+BRASIL|AC|Acre
+BRASIL|AL|Alagoas
+BRASIL|AP|Amapá
+BRASIL|AM|Amazonas
+BRASIL|BA|Bahia
+BRASIL|CE|Ceará
+BRASIL|DF|Distrito Federal
+BRASIL|ES|Espírito Santo
+BRASIL|GO|Goiás
+BRASIL|MA|Maranhão
+BRASIL|MT|Mato Grosso
+BRASIL|MS|Mato Grosso do Sul
+BRASIL|MG|Minas Gerais
+BRASIL|PA|Pará
+BRASIL|PB|Paraíba
+BRASIL|PR|Paraná
+BRASIL|PE|Pernambuco
+BRASIL|PI|Piauí
+BRASIL|RJ|Rio de Janeiro
+BRASIL|RN|Rio Grande do Norte
+BRASIL|RS|Rio Grande do Sul
+BRASIL|RO|Rondônia
+BRASIL|RR|Roraima
+BRASIL|SC|Santa Catarina
+BRASIL|SP|São Paulo
+BRASIL|SE|Sergipe
+BRASIL|TO|Tocantins
