@@ -15,7 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.ArquivoIterator;
 import br.com.mkacunha.arquivo.Linha;
@@ -23,36 +22,25 @@ import br.com.mkacunha.gerador.random.GeradorTexto;
 
 @Entity
 @Table(name = "pais")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "pais")
 public class Pais implements Serializable {
 
 	@Id
 	@Column(name = "id_pais")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_pais")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@Column(name = "ds_nome", length = 60, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_nome", length = 60, required = true)
 	private String nome;
 
 	@Column(name = "ds_sigla", length = 10, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_sigla", length = 10, required = true)
 	private String sigla;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_ultimaalteracao")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_ultimaalteracao")
 	private Date dataUltimaAlteracao;
 
 	@Lob
 	@Column(name = "ds_pais", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Lob
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_pais", required = true)
 	private String descricao;
 
 	public static Pais of(String nome, String sigla, String descricao) {
@@ -68,15 +56,15 @@ public class Pais implements Serializable {
 
 		ArquivoIterator arquivo = new Arquivo(Arquivo.PAISES).iterator();
 		GeradorTexto geradorTexto = new GeradorTexto();
-		
+
 		int cont = 0;
 
 		while (arquivo.hasNext()) {
 			cont++;
-			
+
 			if (cont == 240)
-				cont =0;
-			
+				cont = 0;
+
 			Linha linha = arquivo.next();
 			paises.add(Pais.of(linha.get(1), linha.get(0), geradorTexto.get(250)));
 		}

@@ -19,7 +19,6 @@ import br.com.mkacunha.modelo.Funcionario;
 import br.com.mkacunha.modelo.Idioma;
 import br.com.mkacunha.modelo.Locadora;
 import br.com.mkacunha.modelo.Pais;
-import br.com.mkacunha.persistencia.AnterosPersistencia;
 import br.com.mkacunha.persistencia.EclipseLinkPersistencia;
 import br.com.mkacunha.persistencia.HibernatePersistencia;
 import br.com.mkacunha.persistencia.Persistencia;
@@ -131,16 +130,12 @@ public class ExecucaoTeste {
 
 	public static void main(String[] args) {
 		boolean isHibernate = false;
-		boolean isAnteros = true;
 		boolean isEclipse = false;
 
 		ExecucaoTeste execucaoTeste = null;
 
 		if (isHibernate)
 			execucaoTeste = new ExecucaoTeste(new HibernatePersistencia());
-
-		if (isAnteros)
-			execucaoTeste = new ExecucaoTeste(new AnterosPersistencia());
 
 		if (isEclipse)
 			execucaoTeste = new ExecucaoTeste(new EclipseLinkPersistencia());

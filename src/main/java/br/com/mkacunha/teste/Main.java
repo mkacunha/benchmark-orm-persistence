@@ -8,15 +8,14 @@ import java.util.List;
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.execucao.ResultadoExecucaoTeste;
 import br.com.mkacunha.modelo.Ator;
-import br.com.mkacunha.persistencia.AnterosPersistencia;
+import br.com.mkacunha.persistencia.EclipseLinkPersistencia;
 
 public class Main {
 
 	public static void main(String[] args) {
 
 		// HibernatePersistencia persistencia = new HibernatePersistencia();
-		// EclipseLinkPersistencia persistencia = new EclipseLinkPersistencia();
-		 AnterosPersistencia persistencia = new AnterosPersistencia();
+		 EclipseLinkPersistencia persistencia = new EclipseLinkPersistencia();
 		
 		ResultadoExecucaoTeste resultado = new ResultadoExecucaoTeste("Teste persistir");
 		List<Ator> list = Ator.list(100000);

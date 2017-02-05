@@ -1,6 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,63 +18,43 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.BooleanValue;
-import br.com.anteros.persistence.metadata.annotation.type.BooleanType;
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
 import br.com.mkacunha.gerador.random.GeradorNomes;
 import br.com.mkacunha.gerador.random.GeradorNumeros;
 
 @Entity
 @Table(name = "funcionario")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "funcionario")
-public class Funcionario implements Serializable {
+public class Funcionario {
 
 	@Id
 	@Column(name = "id_funcionario")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_funcionario")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_locadora", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.OneToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_locadora", required = true)
 	private Locadora locadora;
 
 	@Column(name = "ds_nome", length = 100, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_nome", length = 100, required = true)
 	private String nome;
 
 	@Column(name = "ds_email", length = 100)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_email", length = 100)
 	private String email;
 
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_endereco", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.OneToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER, cascade = br.com.anteros.persistence.metadata.annotation.type.CascadeType.ALL)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_endereco", required = true)
 	private Endereco endereco;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_ultimaalteracao")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_ultimaalteracao")
 	private Date dataUltimaAlteracao;
 
-	@Column(name = "bo_ativo", columnDefinition = "varchar(1)", nullable = false)
-	@BooleanValue(trueValue = "1", falseValue = "0", type = BooleanType.STRING)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "bo_ativo", length = 1, required = true)
+	@Column(name = "bo_ativo", nullable = false)
 	private Boolean ativo;
 
 	@Column(name = "ds_usuario", length = 45, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_usuario", length = 45, required = true)
 	private String usuario;
 
 	@Column(name = "senha", length = 45, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "senha", length = 45, required = true)
 	private String senha;
 
 	public static Funcionario of(Locadora locadora, String nome, String email, Endereco endereco, Boolean ativo,

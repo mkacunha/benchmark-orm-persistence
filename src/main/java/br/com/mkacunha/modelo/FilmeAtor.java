@@ -1,7 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,32 +10,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
-
 @Entity
 @Table(name = "filmeator")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "filmeator")
-public class FilmeAtor implements Serializable {
+public class FilmeAtor {
 
 	@Id
 	@Column(name = "id_filmeator")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_filmeator")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_filme", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.ManyToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_filme", required = true)
 	private Filme filme;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_ator", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.ManyToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_ator", required = true)
 	private Ator ator;
 
 	public static FilmeAtor of(Filme filme, Ator ator) {

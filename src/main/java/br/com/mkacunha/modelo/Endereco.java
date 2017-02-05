@@ -1,6 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.Linha;
 import br.com.mkacunha.gerador.random.GeradorNomes;
@@ -26,52 +24,37 @@ import br.com.mkacunha.gerador.random.GeradorNumeros;
 
 @Entity
 @Table(name = "endereco")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "endereco")
-public class Endereco implements Serializable {
+public class Endereco {
 
 	@Id
 	@Column(name = "id_endereco")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_endereco")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@Column(name = "ds_logradouro", length = 100, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_logradouro", length = 100, required = true)
 	private String logradouro;
 
 	@Column(name = "nr_logradouro", length = 20, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "nr_logradouro", length = 20, required = true)
 	private String numero;
 
 	@Column(name = "ds_bairro", length = 100, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_bairro", length = 100, required = true)
 	private String bairro;
 
 	@Column(name = "ds_complemento", length = 250)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_complemento", length = 250)
 	private String complemento;
 
 	@Column(name = "nr_cep", length = 8, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "nr_cep", length = 8, required = true)
 	private String cep;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cidade", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.ManyToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_cidade", required = true)
 	private Cidade cidade;
 
 	@Column(name = "nr_telefone", length = 20, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "nr_telefone", length = 20, required = true)
 	private String numeroTelefone;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_ultimaalteracao")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_ultimaalteracao")
 	private Date dataUltimaAlteracao;
 
 	public static Endereco of(String logradouro, String numero, String bairro, String complemento, String cep,

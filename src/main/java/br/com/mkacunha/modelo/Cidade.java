@@ -1,6 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,39 +16,28 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.ArquivoIterator;
 import br.com.mkacunha.arquivo.Linha;
 
 @Entity
 @Table(name = "cidade")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "cidade")
-public class Cidade implements Serializable {
+public class Cidade {
 
 	@Id
 	@Column(name = "id_cidade")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_cidade")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@Column(name = "ds_cidade", length = 45, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_cidade", length = 45, required = true)
 	private String nome;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_estado", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.OneToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_estado", required = true)
 	private Estado estado;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_ultimaalteracao")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_ultimaalteracao")
 	private Date dataUltimaAlteracao;
 
 	public static Cidade of(String nome, Estado estado) {

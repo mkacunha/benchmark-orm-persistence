@@ -1,6 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,61 +18,42 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
 import br.com.mkacunha.gerador.random.Random;
 
 @Entity
 @Table(name = "aluguel")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "aluguel")
-public class Aluguel implements Serializable {
+public class Aluguel {
 
 	@Id
 	@Column(name = "id_aluguel")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_aluguel")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dt_aluguel", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_aluguel", required = true)
+	@Column(name = "dt_aluguel", nullable = false)	
 	private Date data;
 
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_inventario")
-	@br.com.anteros.persistence.metadata.annotation.OneToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER, cascade = br.com.anteros.persistence.metadata.annotation.type.CascadeType.ALL)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_inventario")
 	private Inventario inventario;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.OneToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_cliente", required = true)
 	private Cliente cliente;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_retorno")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_retorno")
 	private Date dataRetorno;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_funcionario", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.OneToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_funcionario", required = true)
 	private Funcionario funcionario;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_ultimaalteracao")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_ultimaalteracao")
 	private Date dataUltimaAlteracao;
 
 	@OneToMany(mappedBy = "aluguel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@br.com.anteros.persistence.metadata.annotation.OneToMany(mappedBy = "aluguel", cascade = br.com.anteros.persistence.metadata.annotation.type.CascadeType.ALL, fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.LAZY)
 	private List<Pagamento> pagamentos;
 
 	public static Aluguel of(Date data, Inventario inventario, Cliente cliente, Date dataRetorno,

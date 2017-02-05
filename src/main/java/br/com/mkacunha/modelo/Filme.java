@@ -1,6 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.Linha;
 import br.com.mkacunha.gerador.random.GeradorTexto;
@@ -27,72 +25,52 @@ import br.com.mkacunha.gerador.random.Random;
 
 @Entity
 @Table(name = "filme")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "filme")
-public class Filme implements Serializable {
+public class Filme {
 
 	@Id
 	@Column(name = "id_filme")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_filme")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@Column(name = "ds_titulo", length = 100, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_titulo", length = 45, required = true)
 	private String titulo;
 
 	@Column(name = "ano_lancamento", length = 4, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ano_lancamento", length = 4, required = true)
 	private String anoLancamento;
 
 	@Column(name = "qt_duracao_aluguel", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "qt_duracao_aluguel", required = true)
 	private Integer duracaoAluguel;
 
 	@Column(name = "vl_aluguel", nullable = false, precision = 14, scale = 2)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "vl_aluguel", required = true, precision = 14, scale = 2)
 	private BigDecimal valorAluguel;
 
 	@Column(name = "qt_duracao", nullable = false, precision = 5, scale = 2)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "qt_duracao", required = true, precision = 5, scale = 2)
 	private BigDecimal duracao;
 
 	@Column(name = "vl_reposicao", nullable = false, precision = 14, scale = 2)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "vl_reposicao", required = true, precision = 14, scale = 2)
 	private BigDecimal valorReposicao;
 
 	@Column(name = "qt_classificacao", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "qt_classificacao", required = true)
 	private Integer classificacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_ultimaalteracao")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_ultimaalteracao")
 	private Date dataUltimaAlteracao;
 
 	@Column(name = "ds_caracteristicas_especiais", length = 255, nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_caracteristicas_especiais", length = 255, required = true)
 	private String caracteristicasEspeciais;
 
 	@Lob
 	@Column(name = "ds_sinopse", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.Lob
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "ds_sinopse", required = true)
 	private String sinopse;
 
 	@OneToMany(mappedBy = "filme", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@br.com.anteros.persistence.metadata.annotation.OneToMany(mappedBy = "filme", cascade = br.com.anteros.persistence.metadata.annotation.type.CascadeType.ALL, fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.LAZY)
 	private List<FilmeIdioma> idiomas;
 
 	@OneToMany(mappedBy = "filme", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@br.com.anteros.persistence.metadata.annotation.OneToMany(mappedBy = "filme", cascade = br.com.anteros.persistence.metadata.annotation.type.CascadeType.ALL, fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.LAZY)
 	private List<FilmeAtor> atores;
 
 	@OneToMany(mappedBy = "filme", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@br.com.anteros.persistence.metadata.annotation.OneToMany(mappedBy = "filme", cascade = br.com.anteros.persistence.metadata.annotation.type.CascadeType.ALL, fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.LAZY)
 	private List<FilmeCategoria> categorias;
 
 	public static Filme of(String titulo, String anoLancamento, Integer duracaoAluguel, BigDecimal valorAluguel,

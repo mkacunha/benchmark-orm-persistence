@@ -1,6 +1,5 @@
 package br.com.mkacunha.modelo;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -16,48 +15,32 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.anteros.persistence.metadata.annotation.type.GeneratedType;
-
 @Entity
 @Table(name = "pagamento")
-@br.com.anteros.persistence.metadata.annotation.Entity
-@br.com.anteros.persistence.metadata.annotation.Table(name = "pagamento")
-public class Pagamento implements Serializable {
+public class Pagamento {
 
 	@Id
 	@Column(name = "id_pagamento")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@br.com.anteros.persistence.metadata.annotation.Id
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_pagamento")
-	@br.com.anteros.persistence.metadata.annotation.GeneratedValue(strategy = GeneratedType.AUTO)
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.ManyToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_cliente", required = true)
 	private Cliente cliente;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_funcionario", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.ManyToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_funcionario", required = true)
 	private Funcionario funcionario;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_aluguel", nullable = false)
-	@br.com.anteros.persistence.metadata.annotation.ManyToOne(fetch = br.com.anteros.persistence.metadata.annotation.type.FetchType.EAGER)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "id_aluguel", required = true)
 	private Aluguel aluguel;
 
 	@Column(name = "vl_pagamento", precision = 14, scale = 2)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "vl_pagamento", precision = 14, scale = 2)
 	private BigDecimal valorPagamento;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_pagamento")
-	@br.com.anteros.persistence.metadata.annotation.Temporal(br.com.anteros.persistence.metadata.annotation.type.TemporalType.DATE_TIME)
-	@br.com.anteros.persistence.metadata.annotation.Column(name = "dt_pagamento")
 	private Date dataPagamento;
 
 	public static Pagamento of(Cliente cliente, Funcionario funcionario, Aluguel aluguel, BigDecimal valorPagamento,
