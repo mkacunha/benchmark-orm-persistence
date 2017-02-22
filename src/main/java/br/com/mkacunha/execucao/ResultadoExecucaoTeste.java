@@ -132,23 +132,7 @@ public class ResultadoExecucaoTeste {
 		sb.append("\n");
 		sb.append(descricao);
 		sb.append(": ");
-		sb.append(quantidadeRegistro);
-		sb.append(" registro(s)");
-		sb.append("\n");
-		sb.append("      Quantidade de execuções....: ");
-		sb.append(execucao);
-		sb.append("\n");
-		sb.append("      Tempo da primeira execução.: ");
 		sb.append(this.getSegundoPrimeiraExecucao());
-		sb.append(" segundos");
-		sb.append("\n");
-//		sb.append("      Tempo da última execução...: ");
-//		sb.append(this.getSegundoUltimaExecucao());
-//		sb.append(" segundos");
-//		sb.append("\n");
-//		sb.append("      Tempo médio das execuções..: ");
-//		sb.append(this.getSegundoMediaExecucao());
-//		sb.append(" segundos");
 
 		return sb.toString();
 	}

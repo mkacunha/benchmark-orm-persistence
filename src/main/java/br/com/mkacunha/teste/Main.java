@@ -20,11 +20,11 @@ public class Main {
 		ResultadoExecucaoTeste resultado = new ResultadoExecucaoTeste("Teste persistir");
 		List<Ator> list = Ator.list(100000);
 
-		resultado.setQuantidadeRegistro(list.size());
-		resultado.iniciarExecucao();
-		persistencia.save(list);
-		resultado.finalizarExecucao();
-		System.out.println(resultado);
+//		resultado.setQuantidadeRegistro(list.size());  0.598
+//		resultado.iniciarExecucao();
+//		persistencia.save(list);
+//		resultado.finalizarExecucao();
+//		System.out.println(resultado);
 
 		resultado = new ResultadoExecucaoTeste("Teste recuperar");
 		resultado.iniciarExecucao();
@@ -33,25 +33,26 @@ public class Main {
 		resultado.setQuantidadeRegistro(findAll.size());
 		System.out.println(resultado);
 
-		resultado = new ResultadoExecucaoTeste("Teste alterar");
+		// resultado = new ResultadoExecucaoTeste("Teste alterar");
 		// List<Ator> list = persistencia.findAll(Ator.class);
-		resultado.setQuantidadeRegistro(findAll.size());
+		// resultado.setQuantidadeRegistro(findAll.size());
 
-		findAll.forEach(o -> o.setDataUltimaAlteracao(new Date()));
+//		findAll.forEach(o -> o.setDataUltimaAlteracao(new Date()));
+//
+//		resultado.iniciarExecucao();
+//		persistencia.save(findAll);
+//		resultado.finalizarExecucao();
+//		System.out.println(resultado);
 
-		resultado.iniciarExecucao();
-		persistencia.save(findAll);
-		resultado.finalizarExecucao();
-		System.out.println(resultado);
-
-		resultado = new ResultadoExecucaoTeste("Teste remover");
-		list = persistencia.findAll(Ator.class);
-		resultado.setQuantidadeRegistro(list.size());
-		resultado.iniciarExecucao();
-		persistencia.remove(list);
-		resultado.finalizarExecucao();
+//		resultado = new ResultadoExecucaoTeste("Teste remover");
+//		list = persistencia.findAll(Ator.class);
+//		resultado.setQuantidadeRegistro(list.size());
+//		resultado.iniciarExecucao();
+//		persistencia.remove(list);
+//		resultado.finalizarExecucao();
 		System.out.println(resultado);
 	}
+
 
 	public static int randBetween(int start, int end) {
 		return start + (int) Math.round(Math.random() * (end - start));

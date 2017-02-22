@@ -23,7 +23,7 @@ public class AppJPA {
 	public static void main(String[] args) {
 		AppJPA app = new AppJPA();
 
-		// app.Ator();
+		app.Ator();
 		// app.categoria();
 		// app.idioma();
 		// app.pais();

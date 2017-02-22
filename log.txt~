@@ -1,0 +1,66 @@
+
+Persistir por 1 vez(es) objetos referentes a classe Pais: 240 registro(s)
+      Quantidade de execuções....: 1
+      Tempo da primeira execução.: 0.269 segundos
+
+Recuperar por 1 vez(es) objetos referentes a classe Pais: 240 registro(s)
+      Quantidade de execuções....: 1
+      Tempo da primeira execução.: 0.186 segundos
+
+Alterar por 1 vez(es) objetos referentes a classe Pais: 240 registro(s)
+      Quantidade de execuções....: 1
+      Tempo da primeira execução.: 0.213 segundos
+
+Remover por 1 vez(es) objetos referentes a classe Pais: 240 registro(s)
+      Quantidade de execuções....: 1
+      Tempo da primeira execução.: 0.078 segundos
+
+Persistir por 1 vez(es) objetos referentes a classe Pais: 0.326
+Recuperar por 1 vez(es) objetos referentes a classe Pais: 0.142
+Alterar por 1 vez(es) objetos referentes a classe Pais: 0.291
+Remover por 1 vez(es) objetos referentes a classe Pais: 0.133
+Persistir por 1 vez(es) objetos referentes a classe Pais: 0.172
+Recuperar por 1 vez(es) objetos referentes a classe Pais: 0.015
+Alterar por 1 vez(es) objetos referentes a classe Pais: 0.176
+Remover por 1 vez(es) objetos referentes a classe Pais: 0.066
+Persistir por 1 vez(es) objetos referentes a classe Estado: 0.025
+Recuperar por 1 vez(es) objetos referentes a classe Estado: 0.007
+Alterar por 1 vez(es) objetos referentes a classe Estado: 0.059
+Remover por 1 vez(es) objetos referentes a classe Estado: 0.022
+Persistir por 1 vez(es) objetos referentes a classe Cidade: 1.073
+Recuperar por 1 vez(es) objetos referentes a classe Cidade: 0.083
+Alterar por 1 vez(es) objetos referentes a classe Cidade: 1.227
+Remover por 1 vez(es) objetos referentes a classe Cidade: 0.776
+Persistir por 1 vez(es) objetos referentes a classe Ator: 0.025
+Recuperar por 1 vez(es) objetos referentes a classe Ator: 0.003
+Alterar por 1 vez(es) objetos referentes a classe Ator: 0.008
+Remover por 1 vez(es) objetos referentes a classe Ator: 0.008
+Persistir por 1 vez(es) objetos referentes a classe Categoria: 0.01
+Recuperar por 1 vez(es) objetos referentes a classe Categoria: 0.002
+Alterar por 1 vez(es) objetos referentes a classe Categoria: 0.008
+Remover por 1 vez(es) objetos referentes a classe Categoria: 0.008
+Persistir por 1 vez(es) objetos referentes a classe Idioma: 0.014
+Recuperar por 1 vez(es) objetos referentes a classe Idioma: 0.002
+Alterar por 1 vez(es) objetos referentes a classe Idioma: 0.018
+Remover por 1 vez(es) objetos referentes a classe Idioma: 0.013
+Persistir por 1 vez(es) objetos referentes a classe Locadora: 0.034
+Recuperar por 1 vez(es) objetos referentes a classe Locadora: 0.023
+Alterar por 1 vez(es) objetos referentes a classe Locadora: 0.016
+Remover por 1 vez(es) objetos referentes a classe Locadora: 0.018
+Persistir por 1 vez(es) objetos referentes a classe Funcionario: 0.048
+Recuperar por 1 vez(es) objetos referentes a classe Funcionario: 0.017
+Alterar por 1 vez(es) objetos referentes a classe Funcionario: 0.059
+Remover por 1 vez(es) objetos referentes a classe Funcionario: 0.056
+Persistir por 1 vez(es) objetos referentes a classe Cliente: 0.053
+Recuperar por 1 vez(es) objetos referentes a classe Cliente: 0.015
+Alterar por 1 vez(es) objetos referentes a classe Cliente: 0.0
+Remover por 1 vez(es) objetos referentes a classe Cliente: 0.016
+Recuperar por 1 vez(es) objetos referentes a classe Filme e acessar as listas forçando o Lazy: 0.02
+Persistir por 1 vez(es) objetos referentes a classe Filme: 0.085
+Recuperar por 1 vez(es) objetos referentes a classe Filme: 0.003
+Alterar por 1 vez(es) objetos referentes a classe Filme: 0.019
+Remover por 1 vez(es) objetos referentes a classe Filme: 0.089
+Persistir por 1 vez(es) objetos referentes a classe Aluguel: 0.057
+Recuperar por 1 vez(es) objetos referentes a classe Aluguel: 0.021
+Alterar por 1 vez(es) objetos referentes a classe Aluguel: 0.025
+Remover por 1 vez(es) objetos referentes a classe Aluguel: 0.021

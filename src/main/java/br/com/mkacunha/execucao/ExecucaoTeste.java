@@ -50,17 +50,17 @@ public class ExecucaoTeste {
 	public void executar() {
 		LocalDateTime dataInicio = LocalDateTime.now();
 
-//	 limparBaseDados();
+		//limparBaseDados();
 
-//		new ExecucaoPais(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoEstado(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoCidade(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoAtor(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoCategoria(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoIdioma(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoLocadora(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoFuncionario(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-//		new ExecucaoCliente(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoPais(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoEstado(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoCidade(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoAtor(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoCategoria(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoIdioma(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoLocadora(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoFuncionario(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoCliente(this, QUANTIDADE_EXECUCOES_TESTE).executar();
 		new ExecucaoFilme(this, QUANTIDADE_EXECUCOES_TESTE).executar();
 		new ExecucaoAluguel(this, QUANTIDADE_EXECUCOES_TESTE).executar();
 
@@ -130,14 +130,12 @@ public class ExecucaoTeste {
 
 	public static void main(String[] args) {
 		boolean isHibernate = false;
-		boolean isEclipse = false;
 
 		ExecucaoTeste execucaoTeste = null;
 
 		if (isHibernate)
 			execucaoTeste = new ExecucaoTeste(new HibernatePersistencia());
-
-		if (isEclipse)
+		else
 			execucaoTeste = new ExecucaoTeste(new EclipseLinkPersistencia());
 
 		execucaoTeste.executar();

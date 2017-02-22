@@ -33,7 +33,7 @@ public abstract class ExecucaoBase<T> {
 				.getActualTypeArguments()[0];
 
 		try {
-			file = new FileWriter("/Volumes/Mac/log.txt", true);
+			file = new FileWriter("log.txt", true);
 		} catch (IOException e) {
 			logger.error("Erro ao abrir arquivo de log:" + e.getMessage());
 		}

@@ -1,0 +1,56 @@
+
+Persistir por 1 vez(es) objetos referentes a classe Pais: 0.252
+Recuperar por 1 vez(es) objetos referentes a classe Pais: 0.116
+Alterar por 1 vez(es) objetos referentes a classe Pais: 0.127
+Remover por 1 vez(es) objetos referentes a classe Pais: 0.068
+
+Persistir por 1 vez(es) objetos referentes a classe Estado: 0.044
+Recuperar por 1 vez(es) objetos referentes a classe Estado: 0.005
+Alterar por 1 vez(es) objetos referentes a classe Estado: 0.059
+Remover por 1 vez(es) objetos referentes a classe Estado: 0.022
+
+Persistir por 1 vez(es) objetos referentes a classe Cidade: 1.87
+Recuperar por 1 vez(es) objetos referentes a classe Cidade: 0.113
+Alterar por 1 vez(es) objetos referentes a classe Cidade: 1.04
+Remover por 1 vez(es) objetos referentes a classe Cidade: 0.755
+
+Persistir por 1 vez(es) objetos referentes a classe Ator: 13.555
+Recuperar por 1 vez(es) objetos referentes a classe Ator: 0.296
+Alterar por 1 vez(es) objetos referentes a classe Ator: 10.417
+Remover por 1 vez(es) objetos referentes a classe Ator: 6.862
+
+Persistir por 1 vez(es) objetos referentes a classe Categoria: 0.108
+Recuperar por 1 vez(es) objetos referentes a classe Categoria: 0.001
+Alterar por 1 vez(es) objetos referentes a classe Categoria: 0.056
+Remover por 1 vez(es) objetos referentes a classe Categoria: 0.052
+
+Persistir por 1 vez(es) objetos referentes a classe Idioma: 0.095
+Recuperar por 1 vez(es) objetos referentes a classe Idioma: 0.001
+Alterar por 1 vez(es) objetos referentes a classe Idioma: 0.048
+Remover por 1 vez(es) objetos referentes a classe Idioma: 0.045
+
+Persistir por 1 vez(es) objetos referentes a classe Locadora: 33.998
+Recuperar por 1 vez(es) objetos referentes a classe Locadora: 11.898
+Alterar por 1 vez(es) objetos referentes a classe Locadora: 10.693
+Remover por 1 vez(es) objetos referentes a classe Locadora: 15.658
+
+Persistir por 1 vez(es) objetos referentes a classe Funcionario: 37.081
+Recuperar por 1 vez(es) objetos referentes a classe Funcionario: 1.241
+Alterar por 1 vez(es) objetos referentes a classe Funcionario: 10.996
+Remover por 1 vez(es) objetos referentes a classe Funcionario: 16.853
+
+Persistir por 1 vez(es) objetos referentes a classe Cliente: 39.024
+Recuperar por 1 vez(es) objetos referentes a classe Cliente: 0.827
+Alterar por 1 vez(es) objetos referentes a classe Cliente: 0.217
+Remover por 1 vez(es) objetos referentes a classe Cliente: 17.753
+
+Recuperar por 1 vez(es) objetos referentes a classe Filme e acessar as listas forçando o Lazy: 64.984
+Persistir por 1 vez(es) objetos referentes a classe Filme: 324.085
+Recuperar por 1 vez(es) objetos referentes a classe Filme: 1.351
+Alterar por 1 vez(es) objetos referentes a classe Filme: 19.528
+Remover por 1 vez(es) objetos referentes a classe Filme: 422.947
+
+Persistir por 1 vez(es) objetos referentes a classe Aluguel: 131.351
+Recuperar por 1 vez(es) objetos referentes a classe Aluguel: 6.874
+Alterar por 1 vez(es) objetos referentes a classe Aluguel: 48.346
+Remover por 1 vez(es) objetos referentes a classe Aluguel: 68.196
