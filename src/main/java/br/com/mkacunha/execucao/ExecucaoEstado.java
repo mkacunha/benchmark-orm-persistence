@@ -14,17 +14,19 @@ public class ExecucaoEstado extends ExecucaoBase<Estado> {
 
 	public ExecucaoEstado(ExecucaoTeste execucao, int quantidade) {
 		super(execucao, quantidade);
+		
+		Pais pais = Pais.of("BRASIL", "BR", "BRASIL");
+		
+		persistencia.save(pais);
 
-		paises = persistencia.findAll(Pais.class);
+		paises = new ArrayList<>();
+		
+		paises.add(pais);
 	}
 
 	@Override
 	public List<Estado> getObjetosPersistir() {
-		List<Estado> estados = new ArrayList<>();
-
-		paises.forEach(pais -> estados.addAll(Estado.list(pais)));
-
-		return estados;
+		return Estado.list(paises, ExecucaoTeste.QUANTIDA_REGISTROS_BASE_TESTE);
 	}
 
 	@Override

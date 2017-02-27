@@ -15,10 +15,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.id.ExportableColumn;
+
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.ArquivoIterator;
 import br.com.mkacunha.arquivo.Linha;
 import br.com.mkacunha.gerador.random.GeradorTexto;
+import br.com.mkacunha.gerador.random.RandomList;
 
 @Entity
 @Table(name = "pais")
@@ -57,19 +60,21 @@ public class Pais implements Serializable {
 		ArquivoIterator arquivo = new Arquivo(Arquivo.PAISES).iterator();
 		GeradorTexto geradorTexto = new GeradorTexto();
 
-		int cont = 0;
-
 		while (arquivo.hasNext()) {
-			cont++;
-
-			if (cont == 240)
-				cont = 0;
-
 			Linha linha = arquivo.next();
 			paises.add(Pais.of(linha.get(1), linha.get(0), geradorTexto.get(250)));
 		}
 
 		return paises;
+	}
+
+	public static List<Pais> list(int quantidade) {
+		List<Pais> paises = Pais.list();
+
+		if (paises != null && paises.size() > 0)
+			return new RandomList<Pais>().list(paises, quantidade);
+
+		return null;
 	}
 
 	public Long getId() {

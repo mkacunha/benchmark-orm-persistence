@@ -22,6 +22,7 @@ import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.Linha;
 import br.com.mkacunha.gerador.random.GeradorTexto;
 import br.com.mkacunha.gerador.random.Random;
+import br.com.mkacunha.gerador.random.RandomList;
 
 @Entity
 @Table(name = "filme")
@@ -110,9 +111,9 @@ public class Filme {
 					random.nextMonetaryValue(10, 50), random.nextInt(4, 18), null, geradorTexto.get(15, 255),
 					geradorTexto.get(300, 1000), null, null, null);
 
-			List<Idioma> listIdiomas = (List<Idioma>) random.list(idiomas, 3, 5);
-			List<Ator> listAtores = (List<Ator>) random.list(atores, 5, 15);
-			List<Categoria> listCategorias = (List<Categoria>) random.list(categorias, 2, 6);
+			List<Idioma> listIdiomas = new RandomList<Idioma>().list(idiomas, 3, 5);
+			List<Ator> listAtores = new RandomList<Ator>().list(atores, 5, 15);
+			List<Categoria> listCategorias = new RandomList<Categoria>().list(categorias, 2, 6);
 
 			listIdiomas.forEach(idioma -> filme.add(idioma));
 			listAtores.forEach(ator -> filme.add(ator));

@@ -14,7 +14,7 @@ public class ExecucaoPais extends ExecucaoBase<Pais> {
 
 	@Override
 	public List<Pais> getObjetosPersistir() {
-		return Pais.list();
+		return Pais.list(ExecucaoTeste.QUANTIDA_REGISTROS_BASE_TESTE);
 	}
 
 	@Override

@@ -19,6 +19,7 @@ import javax.persistence.TemporalType;
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.ArquivoIterator;
 import br.com.mkacunha.arquivo.Linha;
+import br.com.mkacunha.gerador.random.RandomList;
 
 @Entity
 @Table(name = "cidade")
@@ -47,16 +48,27 @@ public class Cidade {
 		return cidade;
 	}
 
-	public static List<Cidade> list(Estado estado) {
+	public static List<Cidade> list(List<Estado> estados) {
 		List<Cidade> cidades = new ArrayList<>();
+		estados.forEach(estado -> {
+			ArquivoIterator arquivo = new Arquivo(Arquivo.CIDADES, estado.getSigla(), 1).iterator();
 
-		ArquivoIterator arquivo = new Arquivo(Arquivo.CIDADES, estado.getSigla(), 1).iterator();
+			while (arquivo.hasNext()) {
+				Linha linha = arquivo.next();
+				cidades.add(Cidade.of(linha.get(2), estado));
+			}
 
-		while (arquivo.hasNext()) {
-			Linha linha = arquivo.next();
-			cidades.add(Cidade.of(linha.get(2), estado));
-		}
+		});
 		return cidades;
+	}
+	
+	public static List<Cidade> list(List<Estado> estados, int quantidade){
+		List<Cidade> cidades = Cidade.list(estados);
+		
+		if (cidades != null && !cidades.isEmpty())
+			return new RandomList<Cidade>().list(cidades, quantidade);
+		
+		return null;
 	}
 
 	public Long getId() {

@@ -1,6 +1,5 @@
 package br.com.mkacunha.execucao;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,15 +13,12 @@ public class ExecucaoCidade extends ExecucaoBase<Cidade> {
 	public ExecucaoCidade(ExecucaoTeste execucao, int quantidade) {
 		super(execucao, quantidade);
 
-		estados = persistencia.findAll(Estado.class);
+		estados = persistencia.find(Estado.class, 100);
 	}
 
 	@Override
 	public List<Cidade> getObjetosPersistir() {
-		List<Cidade> cidades = new ArrayList<>();
-		estados.forEach(estado -> cidades.addAll(Cidade.list(estado)));
-
-		return cidades;
+		return Cidade.list(estados, ExecucaoTeste.QUANTIDA_REGISTROS_BASE_TESTE);
 	}
 
 	@Override

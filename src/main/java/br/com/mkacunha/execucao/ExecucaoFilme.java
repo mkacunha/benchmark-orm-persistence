@@ -16,21 +16,13 @@ public class ExecucaoFilme extends ExecucaoBase<Filme> {
 	private List<Ator> atores;
 	private List<Categoria> categorias;
 	private Random random = new Random();
-	private ResultadoExecucaoTeste recuperarFilmeForcarLayzLitas;
 
 	public ExecucaoFilme(ExecucaoTeste execucao, int quantidade) {
 		super(execucao, quantidade);
 
-		idiomas = persistencia.findAll(Idioma.class);
+		idiomas = persistencia.find(Idioma.class, 1000);
 		atores = persistencia.find(Ator.class, 1000);
-		categorias = persistencia.findAll(Categoria.class);
-
-		StringBuilder sb = new StringBuilder();
-		sb.append("Recuperar por ");
-		sb.append(quantidade);
-		sb.append(" vez(es) objetos referentes a classe Filme e acessar as listas forçando o Lazy");
-
-		recuperarFilmeForcarLayzLitas = execucao.add(sb.toString());
+		categorias = persistencia.find(Categoria.class, 1000);
 	}
 
 	@Override
@@ -49,28 +41,12 @@ public class ExecucaoFilme extends ExecucaoBase<Filme> {
 
 	@Override
 	public void executarAposOperacaoPersistencia() {
-		List<Filme> filmes;
 
-		recuperarFilmeForcarLayzLitas.iniciarExecucao();
-		filmes = persistencia.findAll(Filme.class);
-		filmes.forEach(filme -> {
-			filme.getAtores().size();
-			filme.getidiomas().size();
-			filme.getCategorias().size();
-		});
-		recuperarFilmeForcarLayzLitas.finalizarExecucao();
-		recuperarFilmeForcarLayzLitas.setQuantidadeRegistro(filmes.size());
 	}
 
 	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Filme.list(1000, idiomas, atores, categorias));
-
-		try {
-			file.write(recuperarFilmeForcarLayzLitas.toString());
-		} catch (IOException e) {
-			logger.error("Erro ao salvar log da operação recuperar filme forçando lazy das listas: " + e.getMessage());
-		}
 	}
 
 }

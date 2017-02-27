@@ -84,6 +84,11 @@ public abstract class JPAPersistencia implements Persistencia {
 		query.append(" o");
 		return find(query.toString(), resultClass);
 	}
+	
+	@Override
+	public <T> List<T> executeQuery(Class<T> resultClass, String query, int maxResultList) {
+		return entityManager.createQuery(query, resultClass).setMaxResults(maxResultList).getResultList();
+	}
 
 	@Override
 	public <T> List<T> find(Class<T> resultClass, int maxResultList) {

@@ -13,7 +13,7 @@ public class ExecucaoIdioma extends ExecucaoBase<Idioma> {
 
 	@Override
 	public List<Idioma> getObjetosPersistir() {
-		return Idioma.list();
+		return Idioma.list(ExecucaoTeste.QUANTIDA_REGISTROS_BASE_TESTE);
 	}
 
 	@Override

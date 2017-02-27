@@ -199,18 +199,18 @@ public class AppJPA {
 					.setMaxResults(1).setParameter("nome", "BRASIL").getSingleResult();
 			entityManager.getTransaction().commit();
 
-			if (pais != null) {
-				entityManager.getTransaction().begin();
-				Estado.list(pais).forEach(obj -> {
-					try {
-						entityManager.persist(obj);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				});
-				entityManager.getTransaction().commit();
-			}
+//			if (pais != null) {
+//				entityManager.getTransaction().begin();
+//				Estado.list(pais).forEach(obj -> {
+//					try {
+//						entityManager.persist(obj);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				});
+//				entityManager.getTransaction().commit();
+//			}
 
 			entityManager.getTransaction().begin();
 			entityManager.createQuery("select e from Estado e", Estado.class).getResultList()
@@ -229,18 +229,18 @@ public class AppJPA {
 					.setMaxResults(1).setParameter("nome", "Paraná").getSingleResult();
 			entityManager.getTransaction().commit();
 
-			if (estado != null) {
-				entityManager.getTransaction().begin();
-				Cidade.list(estado).forEach(obj -> {
-					try {
-						entityManager.persist(obj);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				});
-				entityManager.getTransaction().commit();
-			}
+//			if (estado != null) {
+//				entityManager.getTransaction().begin();
+//				Cidade.list(estado).forEach(obj -> {
+//					try {
+//						entityManager.persist(obj);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				});
+//				entityManager.getTransaction().commit();
+//			}
 
 			entityManager.getTransaction().begin();
 			entityManager.createQuery("select c from Cidade c", Cidade.class).getResultList()

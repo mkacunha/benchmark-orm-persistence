@@ -13,21 +13,12 @@ public class ExecucaoFuncionario extends ExecucaoBase<Funcionario> {
 	private List<Cidade> cidades;
 	private List<Locadora> locadoras;
 	private GeradorTexto geradorTexto = new GeradorTexto();
-	private ResultadoExecucaoTeste alterarFuncionarioEndereco;
 
 	public ExecucaoFuncionario(ExecucaoTeste execucao, int quantidade) {
 		super(execucao, quantidade);
 
 		cidades = persistencia.find(Cidade.class, 1000);
 		locadoras = persistencia.find(Locadora.class, 1000);
-
-		StringBuilder sb = new StringBuilder();
-		sb.append("Alterar por ");
-		sb.append(quantidade);
-		sb.append(
-				" vez(es) atributos de objetos referentes a classe Funcionario e atributos referente a classe Endereco");
-		alterarFuncionarioEndereco = execucao.add(sb.toString());
-
 	}
 
 	@Override
@@ -46,19 +37,7 @@ public class ExecucaoFuncionario extends ExecucaoBase<Funcionario> {
 
 	@Override
 	public void executarAposOperacaoPersistencia() {
-		List<Funcionario> objetos = persistencia.findAll(Funcionario.class);
-
-		objetos.forEach(obj -> {
-			obj.setUsuario(geradorTexto.get(8, 10).replace(" ", ""));
-			obj.setDataUltimaAlteracao(new Date());
-			obj.getEndereco().setDataUltimaAlteracao(new Date());
-			obj.getEndereco().setComplemento(geradorTexto.get(100, 150));
-		});
-
-		alterarFuncionarioEndereco.setQuantidadeRegistro(objetos.size());
-		alterarFuncionarioEndereco.iniciarExecucao();
-		persistencia.save(objetos);
-		alterarFuncionarioEndereco.finalizarExecucao();
+		
 	}
 
 	@Override

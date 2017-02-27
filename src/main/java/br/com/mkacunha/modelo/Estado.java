@@ -21,6 +21,7 @@ import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.ArquivoIterator;
 import br.com.mkacunha.arquivo.Linha;
 import br.com.mkacunha.gerador.random.GeradorTexto;
+import br.com.mkacunha.gerador.random.RandomList;
 
 @Entity
 @Table(name = "estado")
@@ -58,17 +59,27 @@ public class Estado {
 		return estado;
 	}
 
-	public static List<Estado> list(Pais pais) {
+	public static List<Estado> list(List<Pais> paises) {
 		List<Estado> estados = new ArrayList<>();
 
-		ArquivoIterator arquivo = new Arquivo(Arquivo.ESTADOS, pais.getNome(), 0).iterator();
-		GeradorTexto geradorTexto = new GeradorTexto();
-		while (arquivo.hasNext()) {
-			Linha linha = arquivo.next();
-			estados.add(Estado.of(linha.get(2), linha.get(1), pais, geradorTexto.get(200, 500)));
-		}
-
+		paises.forEach(pais -> {
+			ArquivoIterator arquivo = new Arquivo(Arquivo.ESTADOS, pais.getNome(), 0).iterator();
+			GeradorTexto geradorTexto = new GeradorTexto();
+			while (arquivo.hasNext()) {
+				Linha linha = arquivo.next();
+				estados.add(Estado.of(linha.get(2), linha.get(1), pais, geradorTexto.get(200, 500)));
+			}
+		});
+		
 		return estados;
+	}
+
+	public static List<Estado> list(List<Pais> paises, int quantidade) {
+		List<Estado> estados = Estado.list(paises);
+		if (estados != null && !estados.isEmpty())
+			return new RandomList<Estado>().list(estados, quantidade);
+
+		return null;
 	}
 
 	public Long getId() {

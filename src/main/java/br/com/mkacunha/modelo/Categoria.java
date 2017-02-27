@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.mkacunha.arquivo.Arquivo;
+import br.com.mkacunha.gerador.random.RandomList;
 
 @Entity
 @Table(name = "categoria")
@@ -43,6 +44,15 @@ public class Categoria {
 		new Arquivo(Arquivo.CATEGORIAS).linhas().forEach(linha -> categorias.add(Categoria.of(linha.get())));
 
 		return categorias;
+	}
+
+	public static List<Categoria> list(int quantidade) {
+		List<Categoria> categorias = Categoria.list();
+
+		if (categorias != null && !categorias.isEmpty())
+			return new RandomList<Categoria>().list(categorias, quantidade);
+
+		return null;
 	}
 
 	public Long getId() {

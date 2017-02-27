@@ -18,5 +18,7 @@ public interface Persistencia {
 
 	public <T> List<T> find(Class<T> resultClass, int maxResultList);
 
+	public <T> List<T> executeQuery(Class<T> resultClass, String query, int maxResultList);
+	
 	public void removeAll(Class<?> clazz);
 }

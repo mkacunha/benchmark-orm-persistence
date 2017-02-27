@@ -13,7 +13,7 @@ public class ExecucaoCategoria extends ExecucaoBase<Categoria> {
 
 	@Override
 	public List<Categoria> getObjetosPersistir() {
-		return Categoria.list();
+		return Categoria.list(ExecucaoTeste.QUANTIDA_REGISTROS_BASE_TESTE);
 	}
 
 	@Override

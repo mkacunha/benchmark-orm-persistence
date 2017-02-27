@@ -7,13 +7,34 @@ import java.util.List;
 
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.execucao.ResultadoExecucaoTeste;
+import br.com.mkacunha.gerador.random.Random;
+import br.com.mkacunha.gerador.random.RandomList;
 import br.com.mkacunha.modelo.Ator;
+import br.com.mkacunha.modelo.Pais;
 import br.com.mkacunha.persistencia.EclipseLinkPersistencia;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		new Main().testeRandom();
+		
 
+	}
+
+	public void testeRandom(){
+		List<Pais> paises = Pais.list();
+		
+		System.out.println(paises.size());
+		
+		List<Pais> list = new RandomList<Pais>().list(paises, 100000);
+		
+		
+		System.out.println(list.size());
+		
+	}
+	
+	public void testePersistencia(){
 		// HibernatePersistencia persistencia = new HibernatePersistencia();
 		 EclipseLinkPersistencia persistencia = new EclipseLinkPersistencia();
 		
@@ -51,8 +72,8 @@ public class Main {
 //		persistencia.remove(list);
 //		resultado.finalizarExecucao();
 		System.out.println(resultado);
+		
 	}
-
 
 	public static int randBetween(int start, int end) {
 		return start + (int) Math.round(Math.random() * (end - start));

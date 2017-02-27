@@ -27,7 +27,7 @@ public class ExecucaoTeste {
 
 	public static final String LOG_EXECUCAO = "benchmark";
 	public static final int QUANTIDADE_EXECUCOES_TESTE = 1;
-	public static final int QUANTIDA_REGISTROS_BASE_TESTE = 100000;
+	public static final int QUANTIDA_REGISTROS_BASE_TESTE = 30;
 
 	private Persistencia persistencia;
 	private List<ResultadoExecucaoTeste> resultados = new ArrayList<>();
@@ -129,7 +129,7 @@ public class ExecucaoTeste {
 	}
 
 	public static void main(String[] args) {
-		boolean isHibernate = false;
+		boolean isHibernate = true;
 
 		ExecucaoTeste execucaoTeste = null;
 
@@ -139,6 +139,6 @@ public class ExecucaoTeste {
 			execucaoTeste = new ExecucaoTeste(new EclipseLinkPersistencia());
 
 		execucaoTeste.executar();
-		execucaoTeste.imprimirResultado();
+	    execucaoTeste.imprimirResultado();
 	}
 }

@@ -25,17 +25,7 @@ public class Random extends java.util.Random {
 
 		return new BigDecimal(String.valueOf(value) + "." + String.valueOf(decimal));
 	}
-
-	public List list(List list, int min, int max) {
-		List aux = new ArrayList<>();
-		int quant = nextInt(min, max);
-
-		for (int i = 0; i < quant; i++) {
-			aux.add(list.get(i));
-		}
-		return aux;
-	}
-
+	
 	public Date date(int minYear, int maxYear) {
 		try {
 			GregorianCalendar gc = new GregorianCalendar();
