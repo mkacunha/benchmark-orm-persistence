@@ -7,8 +7,8 @@ import br.com.mkacunha.modelo.Idioma;
 
 public class ExecucaoIdioma extends ExecucaoBase<Idioma> {
 
-	public ExecucaoIdioma(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoIdioma(ExecucaoTeste execucao) {
+		super(execucao);
 	}
 
 	@Override

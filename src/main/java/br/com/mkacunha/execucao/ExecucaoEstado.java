@@ -12,8 +12,8 @@ public class ExecucaoEstado extends ExecucaoBase<Estado> {
 
 	private List<Pais> paises;
 
-	public ExecucaoEstado(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoEstado(ExecucaoTeste execucao) {
+		super(execucao);
 		
 		Pais pais = Pais.of("BRASIL", "BR", "BRASIL");
 		

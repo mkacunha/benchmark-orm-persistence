@@ -18,8 +18,8 @@ public class ExecucaoAluguel extends ExecucaoBase<Aluguel> {
 	private List<Funcionario> funcionarios;
 	private Random random = new Random();
 
-	public ExecucaoAluguel(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoAluguel(ExecucaoTeste execucao) {
+		super(execucao);
 
 		locadoras = persistencia.findAll(Locadora.class);
 		filmes = persistencia.findAll(Filme.class);

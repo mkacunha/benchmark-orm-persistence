@@ -7,36 +7,24 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import br.com.mkacunha.operacao.ResultadoExecucaoOperacao;
+import br.com.mkacunha.operacao.TipoOperacao;
 import br.com.mkacunha.persistencia.Persistencia;
 
 public abstract class ExecucaoBase<T> {
 
-	private static final String OPERACAO_PERSISTIR = "Persistir";
-	private static final String OPERACAO_RECUPERAR = "Recuperar";
-	private static final String OPERACAO_ALTERAR = "Alterar";
-	private static final String OPERACAO_REMOVER = "Remover";
-
 	private Class<?> clazz;
-	private int quantidade;
 	protected ExecucaoTeste execucao;
 	protected Persistencia persistencia;
 	protected Logger logger;
-	protected FileWriter file;
 
-	public ExecucaoBase(ExecucaoTeste execucao, int quantidade) {
+	public ExecucaoBase(ExecucaoTeste execucao) {
 		this.execucao = execucao;
-		this.quantidade = quantidade;
 		this.persistencia = execucao.getPersistencia();
 		logger = Logger.getLogger(ExecucaoTeste.LOG_EXECUCAO);
 
 		this.clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass())
 				.getActualTypeArguments()[0];
-
-		try {
-			file = new FileWriter("log.txt", true);
-		} catch (IOException e) {
-			logger.error("Erro ao abrir arquivo de log:" + e.getMessage());
-		}
 	}
 
 	public abstract List<T> getObjetosPersistir();
@@ -50,32 +38,19 @@ public abstract class ExecucaoBase<T> {
 	public void executar() {
 		logger.info("Inicou execução de teste de operações referente a classe " + clazz.getSimpleName());
 
-		ResultadoExecucaoTeste persistir = execucao.add(OPERACAO_PERSISTIR, clazz, quantidade);
-		ResultadoExecucaoTeste recuperar = execucao.add(OPERACAO_RECUPERAR, clazz, quantidade);
-		ResultadoExecucaoTeste alterar = execucao.add(OPERACAO_ALTERAR, clazz, quantidade);
-		ResultadoExecucaoTeste remover = execucao.add(OPERACAO_REMOVER, clazz, quantidade);
+		ResultadoExecucaoOperacao persistir = execucao.add(clazz, TipoOperacao.INSERIR);
+		ResultadoExecucaoOperacao recuperar = execucao.add(clazz, TipoOperacao.RECUPERAR);
+		ResultadoExecucaoOperacao alterar = execucao.add(clazz, TipoOperacao.ALTERAR);
+		ResultadoExecucaoOperacao remover = execucao.add(clazz, TipoOperacao.DELETAR);
 
-		for (int i = 0; i < quantidade; i++) {
-			logger.info("Iniciou execução de teste número " + (i + 1));
-			executarOperacoes(persistir, recuperar, alterar, remover);
-		}
+		executarOperacoes(persistir, recuperar, alterar, remover);
 
 		logger.info("Fim da execução de testes de operações, chamada do método fimExecucaoTeste()");
 		fimExecucaoTeste();
-
-		try {
-			file.write(persistir.toString());
-			file.write(recuperar.toString());
-			file.write(alterar.toString());
-			file.write(remover.toString());
-			file.close();
-		} catch (IOException e) {
-			logger.error("Erro ao fechar arquivo de log: " + e.getMessage());
-		}
 	}
 
-	protected void executarOperacoes(ResultadoExecucaoTeste persistir, ResultadoExecucaoTeste recuperar,
-			ResultadoExecucaoTeste alterar, ResultadoExecucaoTeste remover) {
+	protected void executarOperacoes(ResultadoExecucaoOperacao persistir, ResultadoExecucaoOperacao recuperar,
+			ResultadoExecucaoOperacao alterar, ResultadoExecucaoOperacao remover) {
 		executarOperacaoPersistir(persistir);
 		executarAposOperacaoPersistencia();
 		List<T> objetos = executarOperacaoRecuperar(recuperar);
@@ -83,7 +58,7 @@ public abstract class ExecucaoBase<T> {
 		executarOperacaoRemover(remover, objetos);
 	}
 
-	protected void executarOperacaoPersistir(ResultadoExecucaoTeste persistir) {
+	protected void executarOperacaoPersistir(ResultadoExecucaoOperacao persistir) {
 		List<T> objetosPersistir = getObjetosPersistir();
 
 		persistir.setQuantidadeRegistro(objetosPersistir.size());
@@ -93,7 +68,7 @@ public abstract class ExecucaoBase<T> {
 		persistir.finalizarExecucao();
 	}
 
-	protected List<T> executarOperacaoRecuperar(ResultadoExecucaoTeste recuperar) {
+	protected List<T> executarOperacaoRecuperar(ResultadoExecucaoOperacao recuperar) {
 		recuperar.iniciarExecucao();
 		List<T> findAllObjetos = (List<T>) persistencia.findAll(clazz);
 		recuperar.finalizarExecucao();
@@ -103,7 +78,7 @@ public abstract class ExecucaoBase<T> {
 		return findAllObjetos;
 	}
 
-	protected void executarOperacaoAlterar(ResultadoExecucaoTeste alterar, List<T> objetos) {
+	protected void executarOperacaoAlterar(ResultadoExecucaoOperacao alterar, List<T> objetos) {
 		alterar.setQuantidadeRegistro(objetos.size());
 
 		alterarDadosObjetos(objetos);
@@ -113,7 +88,7 @@ public abstract class ExecucaoBase<T> {
 		alterar.finalizarExecucao();
 	}
 
-	protected void executarOperacaoRemover(ResultadoExecucaoTeste remover, List<T> objetos) {
+	protected void executarOperacaoRemover(ResultadoExecucaoOperacao remover, List<T> objetos) {
 		remover.setQuantidadeRegistro(objetos.size());
 		remover.iniciarExecucao();
 		persistencia.remove(objetos);

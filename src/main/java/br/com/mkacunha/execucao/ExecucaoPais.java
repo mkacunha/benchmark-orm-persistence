@@ -8,8 +8,8 @@ import br.com.mkacunha.modelo.Pais;
 
 public class ExecucaoPais extends ExecucaoBase<Pais> {
 
-	public ExecucaoPais(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoPais(ExecucaoTeste execucao) {
+		super(execucao);
 	}
 
 	@Override

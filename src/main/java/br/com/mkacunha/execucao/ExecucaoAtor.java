@@ -7,8 +7,8 @@ import br.com.mkacunha.modelo.Ator;
 
 public class ExecucaoAtor extends ExecucaoBase<Ator> {
 
-	public ExecucaoAtor(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoAtor(ExecucaoTeste execucao) {
+		super(execucao);
 	}
 
 	@Override

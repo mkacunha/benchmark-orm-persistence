@@ -14,8 +14,8 @@ public class ExecucaoFuncionario extends ExecucaoBase<Funcionario> {
 	private List<Locadora> locadoras;
 	private GeradorTexto geradorTexto = new GeradorTexto();
 
-	public ExecucaoFuncionario(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoFuncionario(ExecucaoTeste execucao) {
+		super(execucao);
 
 		cidades = persistencia.find(Cidade.class, 1000);
 		locadoras = persistencia.find(Locadora.class, 1000);

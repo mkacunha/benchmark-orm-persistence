@@ -2,7 +2,9 @@ package br.com.mkacunha.execucao;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
@@ -19,6 +21,9 @@ import br.com.mkacunha.modelo.Funcionario;
 import br.com.mkacunha.modelo.Idioma;
 import br.com.mkacunha.modelo.Locadora;
 import br.com.mkacunha.modelo.Pais;
+import br.com.mkacunha.operacao.ResultadoExecucao;
+import br.com.mkacunha.operacao.ResultadoExecucaoOperacao;
+import br.com.mkacunha.operacao.TipoOperacao;
 import br.com.mkacunha.persistencia.EclipseLinkPersistencia;
 import br.com.mkacunha.persistencia.HibernatePersistencia;
 import br.com.mkacunha.persistencia.Persistencia;
@@ -26,14 +31,18 @@ import br.com.mkacunha.persistencia.Persistencia;
 public class ExecucaoTeste {
 
 	public static final String LOG_EXECUCAO = "benchmark";
-	public static final int QUANTIDADE_EXECUCOES_TESTE = 1;
 	public static final int QUANTIDA_REGISTROS_BASE_TESTE = 30;
 
 	private Persistencia persistencia;
-	private List<ResultadoExecucaoTeste> resultados = new ArrayList<>();
+	private ResultadoExecucao resultadoExecucao;
 	private Logger logger;
+	private String framework;
+	private int numeroExecucao;
 
-	public ExecucaoTeste(Persistencia persistencia) {
+	public ExecucaoTeste(Persistencia persistencia, String framework, int numeroExecucao) {
+		this.framework = framework;
+		this.numeroExecucao = numeroExecucao;
+		resultadoExecucao = new ResultadoExecucao();
 		this.persistencia = persistencia;
 		BasicConfigurator.configure();
 
@@ -52,17 +61,17 @@ public class ExecucaoTeste {
 
 		//limparBaseDados();
 
-		new ExecucaoPais(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoEstado(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoCidade(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoAtor(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoCategoria(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoIdioma(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoLocadora(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoFuncionario(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoCliente(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoFilme(this, QUANTIDADE_EXECUCOES_TESTE).executar();
-		new ExecucaoAluguel(this, QUANTIDADE_EXECUCOES_TESTE).executar();
+		new ExecucaoPais(this).executar();
+		new ExecucaoEstado(this).executar();
+		new ExecucaoCidade(this).executar();
+		new ExecucaoAtor(this).executar();
+		new ExecucaoCategoria(this).executar();
+		new ExecucaoIdioma(this).executar();
+		new ExecucaoLocadora(this).executar();
+		new ExecucaoFuncionario(this).executar();
+		new ExecucaoCliente(this).executar();
+		new ExecucaoFilme(this).executar();
+		new ExecucaoAluguel(this).executar();
 
 		logger.info("Fim execução de todos os testes");
 
@@ -72,6 +81,9 @@ public class ExecucaoTeste {
 		System.out.println();
 		System.out.println("Data de início: " + dataInicio);
 		System.out.println("Data de fim: " + dataFim);
+		
+		resultadoExecucao.imprimirResultado();
+		resultadoExecucao.salvarArquivo(framework, numeroExecucao);
 	}
 
 	private void limparBaseDados() {
@@ -102,43 +114,19 @@ public class ExecucaoTeste {
 		persistencia.removeAll(clazz);
 	}
 
-	public ResultadoExecucaoTeste add(String operacao, Class<?> clazz, int quantidade) {
-		StringBuilder sb = new StringBuilder();
-		sb.append(operacao);
-		sb.append(" por ");
-		sb.append(quantidade);
-		sb.append(" vez(es) objetos referentes a classe ");
-		sb.append(clazz.getSimpleName());
-
-		return add(sb.toString());
-	}
-
-	public ResultadoExecucaoTeste add(String descricao) {
-		ResultadoExecucaoTeste resultadoExecucao = new ResultadoExecucaoTeste(descricao);
-		resultados.add(resultadoExecucao);
-		return resultadoExecucao;
+	public ResultadoExecucaoOperacao add(Class<?> clazz, TipoOperacao operacao) {
+		return resultadoExecucao.add(clazz, operacao);
 	}
 
 	public Persistencia getPersistencia() {
 		return persistencia;
 	}
-
-	public void imprimirResultado() {
-		resultados.forEach(r -> System.out.println(r));
-
+	
+	public String getFramework() {
+		return framework;
 	}
-
-	public static void main(String[] args) {
-		boolean isHibernate = true;
-
-		ExecucaoTeste execucaoTeste = null;
-
-		if (isHibernate)
-			execucaoTeste = new ExecucaoTeste(new HibernatePersistencia());
-		else
-			execucaoTeste = new ExecucaoTeste(new EclipseLinkPersistencia());
-
-		execucaoTeste.executar();
-	    execucaoTeste.imprimirResultado();
+	
+	public int getNumeroExecucao() {
+		return numeroExecucao;
 	}
 }

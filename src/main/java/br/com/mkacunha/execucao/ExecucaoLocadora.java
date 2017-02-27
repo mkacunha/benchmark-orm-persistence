@@ -10,8 +10,8 @@ public class ExecucaoLocadora extends ExecucaoBase<Locadora> {
 
 	private List<Cidade> cidades;
 
-	public ExecucaoLocadora(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoLocadora(ExecucaoTeste execucao) {
+		super(execucao);
 
 		cidades = persistencia.findAll(Cidade.class);
 	}

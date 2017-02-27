@@ -1,6 +1,5 @@
 package br.com.mkacunha.execucao;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +16,8 @@ public class ExecucaoFilme extends ExecucaoBase<Filme> {
 	private List<Categoria> categorias;
 	private Random random = new Random();
 
-	public ExecucaoFilme(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoFilme(ExecucaoTeste execucao) {
+		super(execucao);
 
 		idiomas = persistencia.find(Idioma.class, 1000);
 		atores = persistencia.find(Ator.class, 1000);

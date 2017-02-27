@@ -11,8 +11,8 @@ public class ExecucaoCliente extends ExecucaoBase<Cliente> {
 	private List<Locadora> locadoras;
 	private List<Cidade> cidades;
 
-	public ExecucaoCliente(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoCliente(ExecucaoTeste execucao) {
+		super(execucao);
 
 		locadoras = persistencia.findAll(Locadora.class);
 		cidades = persistencia.findAll(Cidade.class);

@@ -6,11 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.mkacunha.arquivo.Arquivo;
-import br.com.mkacunha.execucao.ResultadoExecucaoTeste;
 import br.com.mkacunha.gerador.random.Random;
 import br.com.mkacunha.gerador.random.RandomList;
 import br.com.mkacunha.modelo.Ator;
 import br.com.mkacunha.modelo.Pais;
+import br.com.mkacunha.operacao.ResultadoExecucaoOperacao;
 import br.com.mkacunha.persistencia.EclipseLinkPersistencia;
 
 public class Main {
@@ -38,7 +38,7 @@ public class Main {
 		// HibernatePersistencia persistencia = new HibernatePersistencia();
 		 EclipseLinkPersistencia persistencia = new EclipseLinkPersistencia();
 		
-		ResultadoExecucaoTeste resultado = new ResultadoExecucaoTeste("Teste persistir");
+	//	ResultadoExecucaoOperacao resultado = new ResultadoExecucaoOperacao("Teste persistir");
 		List<Ator> list = Ator.list(100000);
 
 //		resultado.setQuantidadeRegistro(list.size());  0.598
@@ -47,12 +47,12 @@ public class Main {
 //		resultado.finalizarExecucao();
 //		System.out.println(resultado);
 
-		resultado = new ResultadoExecucaoTeste("Teste recuperar");
-		resultado.iniciarExecucao();
-		List<Ator> findAll = persistencia.findAll(Ator.class);
-		resultado.finalizarExecucao();
-		resultado.setQuantidadeRegistro(findAll.size());
-		System.out.println(resultado);
+//		resultado = new ResultadoExecucaoOperacao("Teste recuperar");
+//		resultado.iniciarExecucao();
+//		List<Ator> findAll = persistencia.findAll(Ator.class);
+//		resultado.finalizarExecucao();
+//		resultado.setQuantidadeRegistro(findAll.size());
+//		System.out.println(resultado);
 
 		// resultado = new ResultadoExecucaoTeste("Teste alterar");
 		// List<Ator> list = persistencia.findAll(Ator.class);
@@ -71,7 +71,7 @@ public class Main {
 //		resultado.iniciarExecucao();
 //		persistencia.remove(list);
 //		resultado.finalizarExecucao();
-		System.out.println(resultado);
+//		System.out.println(resultado);
 		
 	}
 

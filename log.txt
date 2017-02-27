@@ -360,3 +360,91 @@ Persistir por 1 vez(es) objetos referentes a classe Aluguel: 0.077
 Recuperar por 1 vez(es) objetos referentes a classe Aluguel: 0.082
 Alterar por 1 vez(es) objetos referentes a classe Aluguel: 0.049
 Remover por 1 vez(es) objetos referentes a classe Aluguel: 0.034
+Persistir objetos referentes a classe Pais: 0.074
+Recuperar objetos referentes a classe Pais: 0.142
+Alterar objetos referentes a classe Pais: 0.054
+Remover objetos referentes a classe Pais: 0.026
+Persistir objetos referentes a classe Estado: 0.027
+Recuperar objetos referentes a classe Estado: 0.016
+Alterar objetos referentes a classe Estado: 0.034
+Remover objetos referentes a classe Estado: 0.016
+Persistir objetos referentes a classe Cidade: 0.028
+Recuperar objetos referentes a classe Cidade: 0.017
+Alterar objetos referentes a classe Cidade: 0.024
+Remover objetos referentes a classe Cidade: 0.012
+Persistir objetos referentes a classe Ator: 0.024
+Recuperar objetos referentes a classe Ator: 0.006
+Alterar objetos referentes a classe Ator: 0.021
+Remover objetos referentes a classe Ator: 0.012
+Persistir objetos referentes a classe Categoria: 0.015
+Recuperar objetos referentes a classe Categoria: 0.006
+Alterar objetos referentes a classe Categoria: 0.012
+Remover objetos referentes a classe Categoria: 0.009
+Persistir objetos referentes a classe Idioma: 0.014
+Recuperar objetos referentes a classe Idioma: 0.004
+Alterar objetos referentes a classe Idioma: 0.015
+Remover objetos referentes a classe Idioma: 0.009
+Persistir objetos referentes a classe Locadora: 0.055
+Recuperar objetos referentes a classe Locadora: 0.047
+Alterar objetos referentes a classe Locadora: 0.024
+Remover objetos referentes a classe Locadora: 0.03
+Persistir objetos referentes a classe Funcionario: 0.037
+Recuperar objetos referentes a classe Funcionario: 0.075
+Alterar objetos referentes a classe Funcionario: 0.023
+Remover objetos referentes a classe Funcionario: 0.023
+Persistir objetos referentes a classe Cliente: 0.029
+Recuperar objetos referentes a classe Cliente: 0.048
+Alterar objetos referentes a classe Cliente: 0.003
+Remover objetos referentes a classe Cliente: 0.02
+Persistir objetos referentes a classe Filme: 0.185
+Recuperar objetos referentes a classe Filme: 0.008
+Alterar objetos referentes a classe Filme: 0.02
+Remover objetos referentes a classe Filme: 0.2
+Persistir objetos referentes a classe Aluguel: 0.066
+Recuperar objetos referentes a classe Aluguel: 0.077
+Alterar objetos referentes a classe Aluguel: 0.046
+Remover objetos referentes a classe Aluguel: 0.029
+INSERIR: 0.067
+RECUPERAR: 0.138
+ALTERAR: 0.046
+DELETAR: 0.044
+INSERIR: 0.033
+RECUPERAR: 0.015
+ALTERAR: 0.022
+DELETAR: 0.011
+INSERIR: 0.026
+RECUPERAR: 0.017
+ALTERAR: 0.02
+DELETAR: 0.013
+INSERIR: 0.021
+RECUPERAR: 0.005
+ALTERAR: 0.025
+DELETAR: 0.014
+INSERIR: 0.014
+RECUPERAR: 0.005
+ALTERAR: 0.016
+DELETAR: 0.008
+INSERIR: 0.012
+RECUPERAR: 0.005
+ALTERAR: 0.019
+DELETAR: 0.009
+INSERIR: 0.049
+RECUPERAR: 0.049
+ALTERAR: 0.023
+DELETAR: 0.029
+INSERIR: 0.04
+RECUPERAR: 0.077
+ALTERAR: 0.018
+DELETAR: 0.024
+INSERIR: 0.037
+RECUPERAR: 0.049
+ALTERAR: 0.002
+DELETAR: 0.021
+INSERIR: 0.189
+RECUPERAR: 0.008
+ALTERAR: 0.021
+DELETAR: 0.193
+INSERIR: 0.076
+RECUPERAR: 0.066
+ALTERAR: 0.075
+DELETAR: 0.03

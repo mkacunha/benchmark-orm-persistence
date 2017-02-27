@@ -7,8 +7,8 @@ import br.com.mkacunha.modelo.Categoria;
 
 public class ExecucaoCategoria extends ExecucaoBase<Categoria> {
 
-	public ExecucaoCategoria(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoCategoria(ExecucaoTeste execucao) {
+		super(execucao);
 	}
 
 	@Override

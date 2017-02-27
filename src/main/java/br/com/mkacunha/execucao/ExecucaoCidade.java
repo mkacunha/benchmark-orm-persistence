@@ -10,8 +10,8 @@ public class ExecucaoCidade extends ExecucaoBase<Cidade> {
 
 	private List<Estado> estados;
 
-	public ExecucaoCidade(ExecucaoTeste execucao, int quantidade) {
-		super(execucao, quantidade);
+	public ExecucaoCidade(ExecucaoTeste execucao) {
+		super(execucao);
 
 		estados = persistencia.find(Estado.class, 100);
 	}
