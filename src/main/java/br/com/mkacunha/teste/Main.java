@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.gerador.random.Random;
@@ -11,68 +12,98 @@ import br.com.mkacunha.gerador.random.RandomList;
 import br.com.mkacunha.modelo.Ator;
 import br.com.mkacunha.modelo.Pais;
 import br.com.mkacunha.operacao.ResultadoExecucaoOperacao;
+import br.com.mkacunha.operacao.TipoOperacao;
 import br.com.mkacunha.persistencia.EclipseLinkPersistencia;
+import br.com.mkacunha.persistencia.HibernatePersistencia;
+import br.com.mkacunha.persistencia.Persistencia;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		new Main().testeRandom();
-		
+
+		new Main().persistenciaAtor();
 
 	}
 
-	public void testeRandom(){
+	public void persistenciaAtor() {
+
+		Persistencia persistencia;
+
+		if (new Scanner(System.in).nextInt() == 1)
+			persistencia = new EclipseLinkPersistencia();
+		else
+			persistencia = new HibernatePersistencia();
+		
+		ResultadoExecucaoOperacao inserir = new ResultadoExecucaoOperacao(TipoOperacao.INSERIR);
+
+		inserir.iniciarExecucao();
+		//persistencia.save(Ator.list(100000));
+		inserir.finalizarExecucao();
+
+		ResultadoExecucaoOperacao recuperar = new ResultadoExecucaoOperacao(TipoOperacao.RECUPERAR);
+
+		recuperar.iniciarExecucao();
+		List<Ator> findAll = persistencia.findAll(Ator.class);
+
+		System.out.println(findAll.get(99999));
+		recuperar.finalizarExecucao();
+
+		System.out.println(inserir);
+		System.out.println(recuperar);
+
+	}
+
+	public void testeRandom() {
 		List<Pais> paises = Pais.list();
-		
+
 		System.out.println(paises.size());
-		
+
 		List<Pais> list = new RandomList<Pais>().list(paises, 100000);
-		
-		
+
 		System.out.println(list.size());
-		
+
 	}
-	
-	public void testePersistencia(){
+
+	public void testePersistencia() {
 		// HibernatePersistencia persistencia = new HibernatePersistencia();
-		 EclipseLinkPersistencia persistencia = new EclipseLinkPersistencia();
-		
-	//	ResultadoExecucaoOperacao resultado = new ResultadoExecucaoOperacao("Teste persistir");
+		EclipseLinkPersistencia persistencia = new EclipseLinkPersistencia();
+
+		// ResultadoExecucaoOperacao resultado = new
+		// ResultadoExecucaoOperacao("Teste persistir");
 		List<Ator> list = Ator.list(100000);
 
-//		resultado.setQuantidadeRegistro(list.size());  0.598
-//		resultado.iniciarExecucao();
-//		persistencia.save(list);
-//		resultado.finalizarExecucao();
-//		System.out.println(resultado);
+		// resultado.setQuantidadeRegistro(list.size()); 0.598
+		// resultado.iniciarExecucao();
+		// persistencia.save(list);
+		// resultado.finalizarExecucao();
+		// System.out.println(resultado);
 
-//		resultado = new ResultadoExecucaoOperacao("Teste recuperar");
-//		resultado.iniciarExecucao();
-//		List<Ator> findAll = persistencia.findAll(Ator.class);
-//		resultado.finalizarExecucao();
-//		resultado.setQuantidadeRegistro(findAll.size());
-//		System.out.println(resultado);
+		// resultado = new ResultadoExecucaoOperacao("Teste recuperar");
+		// resultado.iniciarExecucao();
+		// List<Ator> findAll = persistencia.findAll(Ator.class);
+		// resultado.finalizarExecucao();
+		// resultado.setQuantidadeRegistro(findAll.size());
+		// System.out.println(resultado);
 
 		// resultado = new ResultadoExecucaoTeste("Teste alterar");
 		// List<Ator> list = persistencia.findAll(Ator.class);
 		// resultado.setQuantidadeRegistro(findAll.size());
 
-//		findAll.forEach(o -> o.setDataUltimaAlteracao(new Date()));
-//
-//		resultado.iniciarExecucao();
-//		persistencia.save(findAll);
-//		resultado.finalizarExecucao();
-//		System.out.println(resultado);
+		// findAll.forEach(o -> o.setDataUltimaAlteracao(new Date()));
+		//
+		// resultado.iniciarExecucao();
+		// persistencia.save(findAll);
+		// resultado.finalizarExecucao();
+		// System.out.println(resultado);
 
-//		resultado = new ResultadoExecucaoTeste("Teste remover");
-//		list = persistencia.findAll(Ator.class);
-//		resultado.setQuantidadeRegistro(list.size());
-//		resultado.iniciarExecucao();
-//		persistencia.remove(list);
-//		resultado.finalizarExecucao();
-//		System.out.println(resultado);
-		
+		// resultado = new ResultadoExecucaoTeste("Teste remover");
+		// list = persistencia.findAll(Ator.class);
+		// resultado.setQuantidadeRegistro(list.size());
+		// resultado.iniciarExecucao();
+		// persistencia.remove(list);
+		// resultado.finalizarExecucao();
+		// System.out.println(resultado);
+
 	}
 
 	public static int randBetween(int start, int end) {

@@ -15,8 +15,8 @@
 				value="jdbc:mysql://localhost:3306/benchmark?useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="root" />
-			<!--  <property name="hibernate.hbm2ddl.auto" value="update" /> -->
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>            
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+<!--             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>             -->
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="false" />
 			<property name="use_sql_comments" value="false" />
@@ -33,7 +33,7 @@
 				value="jdbc:mysql://localhost:3306/benchmark?useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="root" />
-		    <property name="eclipselink.ddl-generation" value="drop-and-create-tables" /> 
+		    <property name="eclipselink.ddl-generation" value="create-or-extend-tables" /> 
 			<!--   <property name="eclipselink.logging.level.sql" value="FINE"  /> -->            
 		</properties>
 	</persistence-unit>
