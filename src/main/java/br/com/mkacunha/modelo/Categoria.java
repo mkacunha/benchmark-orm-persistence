@@ -3,6 +3,7 @@ package br.com.mkacunha.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,8 +50,17 @@ public class Categoria {
 	public static List<Categoria> list(int quantidade) {
 		List<Categoria> categorias = Categoria.list();
 
-		if (categorias != null && !categorias.isEmpty())
-			return new RandomList<Categoria>().list(categorias, quantidade);
+		if (categorias != null && !categorias.isEmpty()){
+			List<Categoria> aux = new ArrayList<>();
+			int size = categorias.size();
+			Random random = new Random();
+			
+			for (int i = 0; i < quantidade; i++) {
+				Categoria categoria = categorias.get(random.nextInt(size));
+				aux.add(Categoria.of(categoria.getNome()));
+			}
+			return aux;
+		}
 
 		return null;
 	}

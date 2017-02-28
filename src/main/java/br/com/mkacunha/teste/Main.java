@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.com.mkacunha.arquivo.Arquivo;
+import br.com.mkacunha.execucao.ExecucaoTeste;
 import br.com.mkacunha.gerador.random.Random;
 import br.com.mkacunha.gerador.random.RandomList;
 import br.com.mkacunha.modelo.Ator;
+import br.com.mkacunha.modelo.Cidade;
+import br.com.mkacunha.modelo.Estado;
+import br.com.mkacunha.modelo.Idioma;
 import br.com.mkacunha.modelo.Pais;
 import br.com.mkacunha.operacao.ResultadoExecucaoOperacao;
 import br.com.mkacunha.operacao.TipoOperacao;
@@ -21,7 +25,22 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		new Main().persistenciaAtor();
+//		new Main().persistenciaAtor();
+		
+		HibernatePersistencia hibernatePersistencia = new HibernatePersistencia();
+
+		List<Idioma> idioma = Idioma.list(ExecucaoTeste.QUANTIDA_REGISTROS_BASE_TESTE);
+		
+		System.out.println("Idiomas: " + idioma.size());
+		
+		hibernatePersistencia.removeAll(Idioma.class);
+		
+		hibernatePersistencia.save(idioma);
+		
+		List<Idioma> findAll = hibernatePersistencia.findAll(Idioma.class);
+		
+		
+		System.out.println(findAll.size());
 
 	}
 
@@ -57,10 +76,6 @@ public class Main {
 		List<Pais> paises = Pais.list();
 
 		System.out.println(paises.size());
-
-		List<Pais> list = new RandomList<Pais>().list(paises, 100000);
-
-		System.out.println(list.size());
 
 	}
 

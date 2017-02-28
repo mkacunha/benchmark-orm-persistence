@@ -3,6 +3,7 @@ package br.com.mkacunha.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -70,14 +71,23 @@ public class Estado {
 				estados.add(Estado.of(linha.get(2), linha.get(1), pais, geradorTexto.get(200, 500)));
 			}
 		});
-		
+
 		return estados;
 	}
 
 	public static List<Estado> list(List<Pais> paises, int quantidade) {
 		List<Estado> estados = Estado.list(paises);
-		if (estados != null && !estados.isEmpty())
-			return new RandomList<Estado>().list(estados, quantidade);
+		if (estados != null && !estados.isEmpty()) {
+			List<Estado> aux = new ArrayList<>();
+			int size = estados.size();
+			Random random = new Random();
+
+			for (int i = 0; i < quantidade; i++) {
+				Estado estado = estados.get(random.nextInt(size));
+				aux.add(Estado.of(estado.getNome(), estado.getSigla(), estado.getPais(), estado.getDescricao()));
+			}
+			return aux;
+		}
 
 		return null;
 	}

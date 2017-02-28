@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,13 +16,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.id.ExportableColumn;
-
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.ArquivoIterator;
 import br.com.mkacunha.arquivo.Linha;
 import br.com.mkacunha.gerador.random.GeradorTexto;
-import br.com.mkacunha.gerador.random.RandomList;
 
 @Entity
 @Table(name = "pais")
@@ -71,9 +69,17 @@ public class Pais implements Serializable {
 	public static List<Pais> list(int quantidade) {
 		List<Pais> paises = Pais.list();
 
-		if (paises != null && paises.size() > 0)
-			return new RandomList<Pais>().list(paises, quantidade);
+		if (paises != null && paises.size() > 0) {
+			List<Pais> aux = new ArrayList<>();
+			int size = paises.size();
+			Random random = new Random();
 
+			for (int i = 0; i < quantidade; i++) {
+				Pais pais = paises.get(random.nextInt(size));
+				aux.add(Pais.of(pais.getNome(), pais.getSigla(), pais.getDescricao()));
+			}
+			return aux;
+		}
 		return null;
 	}
 

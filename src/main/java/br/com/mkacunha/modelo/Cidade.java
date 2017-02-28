@@ -3,6 +3,7 @@ package br.com.mkacunha.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,13 +62,21 @@ public class Cidade {
 		});
 		return cidades;
 	}
-	
-	public static List<Cidade> list(List<Estado> estados, int quantidade){
+
+	public static List<Cidade> list(List<Estado> estados, int quantidade) {
 		List<Cidade> cidades = Cidade.list(estados);
-		
-		if (cidades != null && !cidades.isEmpty())
-			return new RandomList<Cidade>().list(cidades, quantidade);
-		
+
+		if (cidades != null && !cidades.isEmpty()) {
+			List<Cidade> aux = new ArrayList<>();
+			int size = cidades.size();
+			Random random = new Random();
+
+			for (int i = 0; i < quantidade; i++) {
+				Cidade cidade = cidades.get(random.nextInt(size));
+				aux.add(Cidade.of(cidade.getNome(), cidade.getEstado()));
+			}
+			return aux;
+		}
 		return null;
 	}
 

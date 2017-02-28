@@ -31,7 +31,7 @@ import br.com.mkacunha.persistencia.Persistencia;
 public class ExecucaoTeste {
 
 	public static final String LOG_EXECUCAO = "benchmark";
-	public static final int QUANTIDA_REGISTROS_BASE_TESTE = 30;
+	public static final int QUANTIDA_REGISTROS_BASE_TESTE = 100000;
 
 	private Persistencia persistencia;
 	private ResultadoExecucao resultadoExecucao;
@@ -61,17 +61,17 @@ public class ExecucaoTeste {
 
 		//limparBaseDados();
 
-		new ExecucaoPais(this).executar();
-		new ExecucaoEstado(this).executar();
-		new ExecucaoCidade(this).executar();
-		new ExecucaoAtor(this).executar();
-		new ExecucaoCategoria(this).executar();
+//		new ExecucaoPais(this).executar();
+//		new ExecucaoEstado(this).executar();
+//		new ExecucaoCidade(this).executar();
+//		new ExecucaoAtor(this).executar();
+//		new ExecucaoCategoria(this).executar();
 		new ExecucaoIdioma(this).executar();
-		new ExecucaoLocadora(this).executar();
-		new ExecucaoFuncionario(this).executar();
-		new ExecucaoCliente(this).executar();
-		new ExecucaoFilme(this).executar();
-		new ExecucaoAluguel(this).executar();
+//		new ExecucaoLocadora(this).executar();
+//		new ExecucaoFuncionario(this).executar();
+//		new ExecucaoCliente(this).executar();
+//		new ExecucaoFilme(this).executar();
+//		new ExecucaoAluguel(this).executar();
 
 		logger.info("Fim execução de todos os testes");
 

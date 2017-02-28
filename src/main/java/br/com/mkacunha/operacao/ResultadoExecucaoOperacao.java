@@ -51,8 +51,8 @@ public class ResultadoExecucaoOperacao {
 
 		tempoExecucao = Duration.between(inicioExecucao, fimExecucao).toMillis();
 		isOperacaoExecutada = true;
-		logger.info("Finalizou operacao " + this.tipoOperacao + ": " + converteMiliSegundoParaSegundo(tempoExecucao)
-				+ " segundo(s)");
+		logger.info("Finalizou operacao " + this.tipoOperacao + " " + this.quantidadeRegistro + " registro(s): "
+				+ converteMiliSegundoParaSegundo(tempoExecucao) + " segundo(s)");
 	}
 
 	public Long getMiliSegundoTempoExecucao() {

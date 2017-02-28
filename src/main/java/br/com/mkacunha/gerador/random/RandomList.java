@@ -34,15 +34,4 @@ public class RandomList<T> {
 		}
 		return aux;
 	}
-
-	public List<T> list(List<T> list, int quantidade) {
-		List<T> aux = new ArrayList<>();
-		int size = list.size();
-
-		for (int i = 0; i < quantidade; i++) {
-			aux.add(list.get(random.nextInt(size)));
-		}
-
-		return aux;
-	}
 }

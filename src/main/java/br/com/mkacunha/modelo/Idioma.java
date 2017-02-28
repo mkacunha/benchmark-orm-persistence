@@ -3,7 +3,6 @@ package br.com.mkacunha.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +15,7 @@ import javax.persistence.TemporalType;
 
 import br.com.mkacunha.arquivo.Arquivo;
 import br.com.mkacunha.arquivo.Linha;
-import br.com.mkacunha.gerador.random.RandomList;
+import br.com.mkacunha.gerador.random.Random;
 
 @Entity
 @Table(name = "idioma")
@@ -53,10 +52,21 @@ public class Idioma {
 	public static List<Idioma> list(int quantidade) {
 		List<Idioma> idiomas = Idioma.list();
 
-		if (idiomas != null && !idiomas.isEmpty())
-			return new RandomList<Idioma>().list(idiomas, quantidade);
+		if (idiomas == null || idiomas.isEmpty())
+			return null;
 
-		return null;
+		List<Idioma> aux = new ArrayList<>();
+		Random random = new Random();
+
+		for (int i = 0; i < quantidade; i++) {
+			int nextInt = random.nextInt(idiomas.size());
+
+			Idioma idioma = idiomas.get(nextInt);
+
+			aux.add(Idioma.of(idioma.getNome()));
+		}
+
+		return aux;
 	}
 
 	public Long getId() {

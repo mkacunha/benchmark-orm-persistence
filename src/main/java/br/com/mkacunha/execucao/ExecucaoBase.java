@@ -71,9 +71,8 @@ public abstract class ExecucaoBase<T> {
 	protected List<T> executarOperacaoRecuperar(ResultadoExecucaoOperacao recuperar) {
 		recuperar.iniciarExecucao();
 		List<T> findAllObjetos = (List<T>) persistencia.findAll(clazz);
-		recuperar.finalizarExecucao();
-
 		recuperar.setQuantidadeRegistro(findAllObjetos.size());
+		recuperar.finalizarExecucao();
 
 		return findAllObjetos;
 	}
