@@ -36,11 +36,6 @@ public class ExecucaoFuncionario extends ExecucaoBase<Funcionario> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-		
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Funcionario.list(1000, locadoras, cidades));
 	}

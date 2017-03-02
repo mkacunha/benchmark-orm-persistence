@@ -24,10 +24,6 @@ public class ExecucaoAtor extends ExecucaoBase<Ator> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Ator.list(1000));
 	}

@@ -28,12 +28,7 @@ public class ExecucaoPais extends ExecucaoBase<Pais> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
-		persistencia.save(getObjetosPersistir());
 	}
 
 }

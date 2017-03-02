@@ -39,11 +39,6 @@ public class ExecucaoFilme extends ExecucaoBase<Filme> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Filme.list(1000, idiomas, atores, categorias));
 	}

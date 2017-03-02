@@ -29,11 +29,6 @@ public class ExecucaoCidade extends ExecucaoBase<Cidade> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(getObjetosPersistir());
 	}

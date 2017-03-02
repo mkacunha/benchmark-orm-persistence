@@ -50,10 +50,4 @@ public class ExecucaoAluguel extends ExecucaoBase<Aluguel> {
 	public void fimExecucaoTeste() {
 
 	}
-
-	@Override
-	public void executarAposOperacaoPersistencia() {
-
-	}
-
 }

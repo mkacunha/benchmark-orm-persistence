@@ -29,11 +29,6 @@ public class ExecucaoLocadora extends ExecucaoBase<Locadora> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Locadora.list(1000, cidades));
 	}

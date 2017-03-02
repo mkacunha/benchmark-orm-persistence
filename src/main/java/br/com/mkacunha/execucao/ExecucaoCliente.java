@@ -33,11 +33,4 @@ public class ExecucaoCliente extends ExecucaoBase<Cliente> {
 	public void fimExecucaoTeste() {
 		persistencia.save(Cliente.list(1000, locadoras, cidades));
 	}
-
-	@Override
-	public void executarAposOperacaoPersistencia() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

@@ -103,4 +103,11 @@ public abstract class JPAPersistencia implements Persistencia {
 	public void removeAll(Class<?> clazz) {
 		remove(findAll(clazz));
 	}
+	
+	@Override
+	public void clear() {
+		entityManager.clear();
+		entityManager.close();
+		entityManager = entityManagerFactory.createEntityManager();	
+	}
 }

@@ -51,9 +51,6 @@ public class ExecucaoTeste {
 
 		Logger loggerOrg = Logger.getLogger("org");
 		loggerOrg.setLevel(Level.OFF);
-
-		Logger loggerAnteros = Logger.getLogger("br.com.anteros");
-		loggerAnteros.setLevel(Level.OFF);
 	}
 
 	public void executar() {
@@ -61,17 +58,17 @@ public class ExecucaoTeste {
 
 		//limparBaseDados();
 
-//		new ExecucaoPais(this).executar();
-//		new ExecucaoEstado(this).executar();
-//		new ExecucaoCidade(this).executar();
-//		new ExecucaoAtor(this).executar();
-//		new ExecucaoCategoria(this).executar();
+		new ExecucaoPais(this).executar();
+		new ExecucaoEstado(this).executar();
+		new ExecucaoCidade(this).executar();
+		new ExecucaoAtor(this).executar();
+		new ExecucaoCategoria(this).executar();
 		new ExecucaoIdioma(this).executar();
-//		new ExecucaoLocadora(this).executar();
-//		new ExecucaoFuncionario(this).executar();
-//		new ExecucaoCliente(this).executar();
-//		new ExecucaoFilme(this).executar();
-//		new ExecucaoAluguel(this).executar();
+		new ExecucaoLocadora(this).executar();
+		new ExecucaoFuncionario(this).executar();
+		new ExecucaoCliente(this).executar();
+		new ExecucaoFilme(this).executar();
+		new ExecucaoAluguel(this).executar();
 
 		logger.info("Fim execução de todos os testes");
 

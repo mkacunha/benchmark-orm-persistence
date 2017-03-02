@@ -37,7 +37,7 @@ public class ResultadoExecucaoOperacao {
 		if (isOperacaoExecutada)
 			throw new RuntimeException("Operação " + this.tipoOperacao + " já executada");
 
-		logger.info("Iniciou operacao " + this.tipoOperacao);
+		logger.info(" --> Iniciou operacao " + this.tipoOperacao);
 
 		isExecucaoIniciada = true;
 		inicioExecucao = LocalDateTime.now();
@@ -51,7 +51,7 @@ public class ResultadoExecucaoOperacao {
 
 		tempoExecucao = Duration.between(inicioExecucao, fimExecucao).toMillis();
 		isOperacaoExecutada = true;
-		logger.info("Finalizou operacao " + this.tipoOperacao + " " + this.quantidadeRegistro + " registro(s): "
+		logger.info(" --> Finalizou operacao " + this.tipoOperacao + " " + this.quantidadeRegistro + " registro(s): "
 				+ converteMiliSegundoParaSegundo(tempoExecucao) + " segundo(s)");
 	}
 

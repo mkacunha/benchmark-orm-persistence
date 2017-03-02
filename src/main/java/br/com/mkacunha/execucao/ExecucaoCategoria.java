@@ -22,11 +22,6 @@ public class ExecucaoCategoria extends ExecucaoBase<Categoria> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Categoria.list());
 	}

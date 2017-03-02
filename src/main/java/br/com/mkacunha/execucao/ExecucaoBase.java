@@ -1,7 +1,5 @@
 package br.com.mkacunha.execucao;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -21,6 +19,7 @@ public abstract class ExecucaoBase<T> {
 	public ExecucaoBase(ExecucaoTeste execucao) {
 		this.execucao = execucao;
 		this.persistencia = execucao.getPersistencia();
+		this.persistencia.clear();
 		logger = Logger.getLogger(ExecucaoTeste.LOG_EXECUCAO);
 
 		this.clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass())
@@ -33,32 +32,28 @@ public abstract class ExecucaoBase<T> {
 
 	public abstract void fimExecucaoTeste();
 
-	public abstract void executarAposOperacaoPersistencia();
-
 	public void executar() {
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println();
 		logger.info("Inicou execução de teste de operações referente a classe " + clazz.getSimpleName());
 
-		ResultadoExecucaoOperacao persistir = execucao.add(clazz, TipoOperacao.INSERIR);
-		ResultadoExecucaoOperacao recuperar = execucao.add(clazz, TipoOperacao.RECUPERAR);
-		ResultadoExecucaoOperacao alterar = execucao.add(clazz, TipoOperacao.ALTERAR);
-		ResultadoExecucaoOperacao remover = execucao.add(clazz, TipoOperacao.DELETAR);
+		executarOperacoes();
 
-		executarOperacoes(persistir, recuperar, alterar, remover);
-
-		logger.info("Fim da execução de testes de operações, chamada do método fimExecucaoTeste()");
+		logger.info("Fim da execução de testes de operações, chamada do método fimExecucaoTeste()");		
 		fimExecucaoTeste();
+		logger.info("Fim da execução do método fimExecucaoTeste()");
 	}
 
-	protected void executarOperacoes(ResultadoExecucaoOperacao persistir, ResultadoExecucaoOperacao recuperar,
-			ResultadoExecucaoOperacao alterar, ResultadoExecucaoOperacao remover) {
-		executarOperacaoPersistir(persistir);
-		executarAposOperacaoPersistencia();
-		List<T> objetos = executarOperacaoRecuperar(recuperar);
-		executarOperacaoAlterar(alterar, objetos);
-		executarOperacaoRemover(remover, objetos);
+	protected void executarOperacoes() {
+		executarOperacaoPersistir();
+		List<T> objetos = executarOperacaoRecuperar();
+		executarOperacaoAlterar(objetos);
+		executarOperacaoRemover(objetos);
 	}
 
-	protected void executarOperacaoPersistir(ResultadoExecucaoOperacao persistir) {
+	protected void executarOperacaoPersistir() {
+		ResultadoExecucaoOperacao persistir = execucao.add(clazz, TipoOperacao.INSERIR);
 		List<T> objetosPersistir = getObjetosPersistir();
 
 		persistir.setQuantidadeRegistro(objetosPersistir.size());
@@ -68,7 +63,9 @@ public abstract class ExecucaoBase<T> {
 		persistir.finalizarExecucao();
 	}
 
-	protected List<T> executarOperacaoRecuperar(ResultadoExecucaoOperacao recuperar) {
+	protected List<T> executarOperacaoRecuperar() {
+		ResultadoExecucaoOperacao recuperar = execucao.add(clazz, TipoOperacao.RECUPERAR);
+
 		recuperar.iniciarExecucao();
 		List<T> findAllObjetos = (List<T>) persistencia.findAll(clazz);
 		recuperar.setQuantidadeRegistro(findAllObjetos.size());
@@ -77,7 +74,9 @@ public abstract class ExecucaoBase<T> {
 		return findAllObjetos;
 	}
 
-	protected void executarOperacaoAlterar(ResultadoExecucaoOperacao alterar, List<T> objetos) {
+	protected void executarOperacaoAlterar(List<T> objetos) {
+		ResultadoExecucaoOperacao alterar = execucao.add(clazz, TipoOperacao.ALTERAR);
+
 		alterar.setQuantidadeRegistro(objetos.size());
 
 		alterarDadosObjetos(objetos);
@@ -87,7 +86,9 @@ public abstract class ExecucaoBase<T> {
 		alterar.finalizarExecucao();
 	}
 
-	protected void executarOperacaoRemover(ResultadoExecucaoOperacao remover, List<T> objetos) {
+	protected void executarOperacaoRemover(List<T> objetos) {
+		ResultadoExecucaoOperacao remover = execucao.add(clazz, TipoOperacao.REMOVER);
+
 		remover.setQuantidadeRegistro(objetos.size());
 		remover.iniciarExecucao();
 		persistencia.remove(objetos);

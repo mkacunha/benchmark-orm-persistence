@@ -22,11 +22,6 @@ public class ExecucaoIdioma extends ExecucaoBase<Idioma> {
 	}
 
 	@Override
-	public void executarAposOperacaoPersistencia() {
-
-	}
-
-	@Override
 	public void fimExecucaoTeste() {
 		persistencia.save(Idioma.list());
 	}
